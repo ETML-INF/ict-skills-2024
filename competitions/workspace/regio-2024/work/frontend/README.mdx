@@ -1,0 +1,279 @@
+
+import { Highlight } from '@skills17/competitor-readme';
+
+# Chess Game Engine
+
+Your task is to create an application that shows the outcome of a chess game.
+You are provided with a set of JavaScript files that you need to complete to achieve this.
+
+Your data consists of a [PGN \(Portable Game Notation\)](#pgn-portable-game-notation) file. You will have to interpret and play out every move of the game to deduce the final position of all pieces.
+
+Quick check if you are familiar with the chess basics needed for this task:
+
+- You know the terms `rank` (row) and `file` (column) and how to refer to a specific square on the board.
+- You know all the pieces and their moves.
+
+If you need to refresh your memory, you can find a quick overview of the basics in the [Chess Basics](#chess-basics) section
+which covers the board, how pieces move, and the rules of the game.
+
+## Table of Contents
+
+- [Working Directory](#working-directory)
+- [Expected Result](#expected-result)
+- [PGN (Portable Game Notation)](#pgn-portable-game-notation)
+- [SAN (Standard Algebraic Notation)](#san-standard-algebraic-notation)
+- [File and Rank Identifiers](#file-and-rank-identifiers)
+- [Castling](#castling)
+- [Chess Basics](#chess-basics)
+
+## Working Directory
+
+<Highlight type="info">
+  The working directory is located at `work/frontend/src/`.
+
+  You may only change the files within that folder. You may use resources from `work/frontend/lib/`.
+
+  Also make sure to check the header of each file for notes on what you may or may not change.
+
+  You are **not** allowed to install additional NPM packages.
+</Highlight>
+
+<Highlight type="error">
+  For reviewing your work, unit tests are used.
+  So be sure that you are executing the unit tests at some point to verify your progress.
+
+  Please note that these behaviors are considered as cheating and will give you 0 points for the whole frontend task:
+  * It is forbidden to change the content of the test files.
+  * It is forbidden to return static results (only make it work for the exact same situations that the one described in the tests).
+</Highlight>
+
+## Expected Result
+
+You have implemented all the methods marked with `@todo` in `work/frontend/src/*.js`,
+and all tests in the test suite `cypress/e2e/*.cy.js` are passing.
+
+The order of implementation is up to you, but we recommend the following:
+
+1. `ui.js` (implementing `createBoard`, `getSquare`, `renderPieces` and `clearPieces` helps you visually debug your other tasks in Cypress)
+2. `util.js`
+3. `position.js`
+4. `pieces.js`
+
+### Bonus
+
+When you have implemented **every** piece movement correctly, you will be able to run full games. Check your bonus points by running the tests in `games.cy.js` after implementing all functions.
+
+### Running the Tests
+
+All tests are located in `work/frontend/cypress/e2e`. You can look at them to see what is expected to happen, but you are not allowed to change them in any way.
+
+You may run the tests in two ways:
+
+**Interactively with Cypress** - `npm start` (recommended)
+  - Starts an **interactive test runner** that lets you select which tests to run and gives you extensive feedback on the tests' results.
+  - Wait for Cypress and Chrome to start (it might take a bit of time initially).
+  - Select the testsuite for the module you want to test. This will run the tests in the browser and give you visual feedback.
+  - Click the "Run all tests" button to rerun the tests.
+  - Select or hover over a test or assertion in the left sidebar to see the website at that specific point in time.
+
+**In your Terminal** - `npm test`
+  - Runs all the tests in your terminal, gives you feedback on their results and lets you know **how many points you have earned**.
+  - `npm test -- --spec "cypress/e2e/ui.cy.js"` allows you to only run the specified test file.
+
+## PGN (Portable Game Notation)
+
+PGN is a standard plain text format for recording chess games. It consists of tag pairs like `[Result "0-1"]` to provide some metadata for a chess game. The tag pairs used for our application include the following data:
+
+- White player name
+- Black player name
+- Result
+- Date
+
+The movetext describes the actual moves of the game. This includes move number indicators and movetext, for white and black, in Standard Algebraic Notation (SAN).
+
+`1. Nf3 Nf6 2. c4 g6 ...`
+
+- First move for white is `Nf3`
+- First move for black is `Nf6`
+- Second move for white is `c4`
+- Second move for black is `g6`
+
+The movetext ends with result of the game.
+
+`... 40. Kb1 Nc3+ 41. Kc1 Rc2# 0-1`
+
+## SAN (Standard Algebraic Notation)
+
+The notation for most moves includes the letter abbreviation of the pieces that is moved.
+
+- `K` King
+- `Q` Queen
+- `R` Rook
+- `B` Bishop
+- `N` Knight
+- For pawns the letter abbreviation is omitted
+
+It is followed by the square that the pieces moves to. For example:
+
+- `b4` no letter abbreviation means the piece is a Pawn -> Pawn moves to the `b4` square
+- `Nf3` N is the letter abbreviation for the Knight -> Knight moves to the `f3` square
+
+<img src="/api/images/frontend/frontend/readme/example-Nf3-b4.png" alt="Nf3 b4" width="500" />
+
+The SAN might include an `x` to indicate that an opposing piece was taken in this move.
+
+- `Qxa4` The queen moves to `a4` and takes the piece currently occupying this square
+
+<img src="/api/images/frontend/frontend/readme/example-Qxa4.png" alt="Qxa4" width="500" />
+
+If the SAN ends with `+`, then this move checks the opposing king.
+
+- `Re4+` The rook moves to `e4` and checks the opposing king
+- `Nxc7+` The knight moves to `c7` and takes the piece currently occupying this square, while also checking the opposing king
+
+<img src="/api/images/frontend/frontend/readme/example-Re4check-Nxc7check.png" alt="Re4+ Nxc7+" width="500" />
+
+If the SAN ends with `#`, then this move checkmates the opposing king and ends the game.
+
+- `Bg3#` The Bishop moves to `g3` and checkmates the opposing king
+
+<img src="/api/images/frontend/frontend/readme/example-Bg3checkmate.png" alt="Bg3#" width="500" />
+
+<Highlight type="info">
+  A move is either a check, checkmate or none at all. A SAN like `Bg3+#` would be an invalid notation.
+</Highlight>
+
+<Highlight type="info">
+   **Exclusion of advanced moves:**
+  
+  - `Promotion of a pawn` is ignored and will not occur in the games provided in this task.
+  - `En passant` is ignored and will not occur in the games provided in this task.
+</Highlight>
+
+## File and Rank Identifiers
+
+When multiple pieces of the same type can move to the same square, the file letter and/or rank number of the piece is used to indicate which piece executes the move.
+
+In a few cases, when multiple of your pieces could have executed the move, a more detailed representation is needed to make it clear which piece is moving.
+
+Both knights can take the pawn on `d3`, therefore the piece's file letter (`b`) is used to indicate which knight executes the move, resulting in the notation `Nbxd3`.
+
+<img src="/api/images/frontend/frontend/readme/disambiguation-Nbxd3.png" alt="Nbxd3" width="500" />
+
+Both rooks can take the pawn on `e3`, therefore the piece's rank number (`5`) is used to indicate which knight executes the move, resulting in the notation `R5xe3`.
+
+<img src="/api/images/frontend/frontend/readme/disambiguation-R5xe3.png" alt="R5xe3" width="500" />
+
+All queens can take the pawn on `b2`, therefore the piece's file letter **and** rank number (`d4`) is used to indicate which queen executes the move, resulting in the notation `Qd4xb2`.
+
+<img src="/api/images/frontend/frontend/readme/disambiguation-Qd4xb2.png" alt="Qd4xb2" width="500" />
+
+<Highlight type="info">
+  If one of two pieces would illegally move through another piece to reach the target square, no additional file or rank indication is provided.
+</Highlight>
+
+<Highlight type="info">
+  **Good to know only for chess pros:**
+
+  Disambiguation based solely on validity of a move (eg. checkmating yourself), is adjusted to have a file and/or rank indication in the provided PGN files.
+</Highlight>
+
+
+## Castling
+
+Castling (The Rochade) is a special move involving the king and either of the original rooks of the same color. It is the only move that allows two pieces to move at once.
+
+The short castle is indicated by the sequence `O-O`. While the long castle is indicated by `O-O-O`.
+
+<Highlight type="info">
+  The symbol used is the capital letter `O` - not a zero.
+</Highlight>
+
+It's possible for castling to result in a check or checkmate. This results in the following notation:
+
+- `O-O+` short castle checking the opposing king
+- `O-O-O#` long castle checkmating the opposing king
+
+## Chess Basics
+
+The player with the white pieces starts the game, alternating moves with the player who has the black pieces.
+
+### Board
+
+The board consists of `8x8` squares. The horizontal lines are called `ranks` and are indicated by the numbers `1-8`. The vertical lines are called `files` and are indicated by the lowercase letters `a-h`.
+
+`Rank` numbers move from `1`, the lowest rank from the point of view of white, to `8`, the highest rank.
+
+`File` letters move from `a`, the most left file from the point of view of white, to `h`, the most right file.
+
+You refer to a specific square with a notation of its `file` and `rank` (e.g. `e4`).
+
+<img src="/api/images/frontend/frontend/readme/board.png" alt="Board" width="500" />
+
+In the application the resulting `position` between moves is persisted as an array containing every piece on the board (`Piece[]`). The piece contains information on which square it is located (`piece.square`).
+
+### How Pieces Move
+
+Pieces can move to free squares or capture another piece on their target square. They however cannot move through other pieces in their path, except the knight which can jump over other pieces.
+
+Below is a list of how every piece is able to move.
+
+#### King
+
+The king moves exactly one square horizontally, vertically, or diagonally. A special move with the king known as castling is allowed only once per player, per game (see below).
+
+<img src="/api/images/frontend/frontend/readme/king-move.png" alt="King move" width="500" />
+
+#### Queen
+
+The queen moves any number of squares horizontally, vertically, or diagonally.
+
+<img src="/api/images/frontend/frontend/readme/queen-move.png" alt="Queen move" width="500" />
+
+#### Rook
+
+A rook moves any number of squares horizontally or vertically. It also is moved when castling.
+
+<img src="/api/images/frontend/frontend/readme/rook-move.png" alt="Rook move" width="500" />
+
+#### Bishop
+
+A bishop moves any number of squares diagonally.
+
+<img src="/api/images/frontend/frontend/readme/bishop-move.png" alt="Bishop move" width="500" />
+
+#### Knight
+
+The knight moves in an `L`-Shape. 2 squares vertical and 1 square horizontal - or - 2 squares horizontal and 1 square vertical.
+
+<img src="/api/images/frontend/frontend/readme/knight-move.png" alt="Knight move" width="500" />
+
+#### Pawn
+
+A pawn moves straight forward (POV of its player) one square.
+
+If it has not yet moved from its starting position, a pawn also has the option of moving two squares straight forward (POV of its player).
+
+A pawn can capture opposing pieces diagonally-forwards (POV of its player) one square.
+
+Pawns cannot move backwards (POV of its player).
+
+<img src="/api/images/frontend/frontend/readme/pawn-move.png" alt="Pawn move" width="500" />
+
+#### Castling
+
+Castling consists of moving the king two squares towards a rook, then placing the rook on the other side of the king, adjacent to it.
+
+Short castle:
+
+<img src="/api/images/frontend/frontend/readme/short-castle.png" alt="Short castle" width="500" />
+
+Long castle:
+
+<img src="/api/images/frontend/frontend/readme/long-castle.png" alt="Long castle" width="500" />
+
+### Move Validity
+
+<Highlight type="info">
+  The validity of a move is not relevant for this application, since all provided games consist of valid moves only.
+</Highlight>

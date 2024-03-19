@@ -1,0 +1,88 @@
+:root {
+  --c-square-light: #e9edcc;
+  --c-square-dark: #779954;
+}
+
+body {
+  margin: 0;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(8, 1fr);
+
+  aspect-ratio: 1;
+  max-height: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+#board tr {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+}
+
+#board tr:nth-child(odd) td:nth-child(even),
+#board tr:nth-child(even) td:nth-child(odd) {
+  --_c-bg: var(--c-square-dark);
+  --_c-font: var(--c-square-light);
+}
+
+#board tr:nth-child(odd) td:nth-child(odd),
+#board tr:nth-child(even) td:nth-child(even) {
+  --_c-bg: var(--c-square-light);
+  --_c-font: var(--c-square-dark);
+}
+
+#board td {
+  background-size: contain;
+  background-position: center;
+
+  background-color: var(--_c-bg);
+  color: var(--_c-font);
+}
+
+#board {
+  counter-reset: rank 9;
+}
+
+#board tr {
+  counter-reset: file;
+  counter-increment: rank -1;
+}
+
+#board tr td {
+  counter-increment: file;
+}
+
+#board tr td:first-child {
+  position: relative;
+}
+
+#board tr td:first-child::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: counter(rank);
+}
+
+#board tr:last-child td {
+  position: relative;
+}
+
+#board tr:last-child td::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  content: counter(file, lower-alpha);
+}
+
+#board *::before,
+#board *::after {
+  font-size: 3dvmin;
+  font-weight: 500;
+  padding: 0.25em;
+  line-height: 1;
+}

@@ -1,0 +1,63 @@
+metadata:
+  name: Regional Championship
+  year: 2024
+  skill: Web Technologies
+  author: ICT Berufsbildung
+  id: regio-2024
+  nameArticle: true
+modules:
+- id: htmlcss
+  name: HTML / CSS
+  metadata:
+    time: 0.25h
+  tasks:
+  - work: ./work/htmlcss/
+    solution: ./solution/htmlcss/
+- id: frontend
+  name: Frontend Development
+  metadata:
+    time: 1.75h
+  tasks:
+  - work: ./work/frontend/
+    solution: ./solution/frontend/
+- id: backend
+  name: Backend Development
+  metadata:
+    time: 1h
+  tasks:
+  - work: ./work/backend/
+    solution: ./solution/backend/
+readme:
+  logo: ./readme/logo.svg
+  favicon: ./readme/favicon.ico
+  instructions: ./readme/README.mdx
+  signup:
+    filePath: ./work/competitor.json
+    registrationApi: https://submissions.skills17.ch/api/championships/regio-2024/competitors/register
+    fields:
+    - id: firstname
+      label: First name
+      required: true
+    - id: lastname
+      label: Last name
+      required: true
+    - id: email
+      label: Email
+      required: true
+      type: email
+    - id: birthdate
+      label: Birth date
+      required: true
+      placeholder: 'YYYY-MM-DD'
+      helper: 'Please enter it in the following format: YYYY-MM-DD'
+    - id: school
+      label: School
+      required: true
+      helper: Name of the school you are studying in. If you are no longer studying, enter the name of the school you last studied in.
+    - id: company
+      label: Company
+      required: true
+      helper: Name of the company you are working for.
+    - id: editor
+      label: Your favorite editor
+      helper: This information helps us maintaining the list of available source code editors and IDEs.

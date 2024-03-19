@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://schema.skills17.ch/task-config/v3/config.schema.json
+id: frontend
+metadata:
+  name: Chess Game Engine
+localHistory: true
+source:
+  - src/**
+groups:
+  - match: ^UI .*
+    displayName: User Interface
+    defaultPoints: 1
+    tests:
+      - match: ^can upload a PGN$
+        points: 2
+  - match: ^Util .*
+    displayName: Util
+    defaultPoints: 0.75
+  - match: ^Position .*
+    displayName: Position
+    defaultPoints: 1
+    tests:
+      - match: ^canPieceMove > can find the correct pawn.*$
+        points: 1.5
+      - match: ^move > can castle short$
+        points: 2
+      - match: ^move > can castle long$
+        points: 2
+  - match: ^Games .*
+    displayName: Full Games (Bonus)
+    defaultPoints: 2.5

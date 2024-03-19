@@ -1,0 +1,24 @@
+{
+    "name": "skills17/backend",
+    "description": "Backend task for Regional Championship 2024 - Skill 17 - Web Technologies",
+    "type": "project",
+    "license": "UNLICENSED",
+    "scripts": {
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "php -S 0.0.0.0:4000 src-php/Lib/DevServer.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "ICT Berufsbildung",
+            "email": "hello@skills17.ch"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Skills17\\": "src-php/"
+        }
+    },
+    "require": {}
+}
