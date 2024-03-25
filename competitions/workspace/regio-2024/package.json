@@ -1,0 +1,21 @@
+{
+  "name": "competitor-readme",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently npm:start:*",
+    "start:readme": "serve-competitor-readme",
+    "start:docker": "docker compose up",
+    "start:browser": "opener http://localhost:3000",
+    "dev": "competitor-readme",
+    "build": "competitor-readme --build ./dist",
+    "pdf": "convert-to-pdf --skip-build"
+  },
+  "author": "ICT Berufsbildung Schweiz",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "@skills17/competitor-readme": "^2.1.7",
+    "concurrently": "^8.2.2",
+    "opener": "^1.5.2"
+  }
+}

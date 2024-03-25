@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Frontend task for Regional Championship 2024 — Skill 17 — Web Technologies",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "skills17-cypress open --e2e --browser chrome",
+    "test": "skills17-cypress run --browser chrome --headless",
+    "test:json": "skills17-cypress run --quiet --browser chrome --headless --json"
+  },
+  "keywords": [],
+  "author": "ICT Berufsbildung",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@skills17/cypress-helpers": "^4.1.0",
+    "competitor-readme": "file:../..",
+    "cypress": "^12.17.4",
+    "eslint": "^8.9.0",
+    "eslint-plugin-cypress": "^2.12.1"
+  }
+}

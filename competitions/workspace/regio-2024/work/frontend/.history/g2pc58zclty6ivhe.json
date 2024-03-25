@@ -1,0 +1,38 @@
+{
+  "time": 1710840942,
+  "testResults": [
+    {
+      "group": "Full Games (Bonus)",
+      "points": 0,
+      "maxPoints": 7.5,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "Game of the century",
+          "points": 0,
+          "maxPoints": 2.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "Magnus vs. Hans Scandal",
+          "points": 0,
+          "maxPoints": 2.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "Bongcloud draw",
+          "points": 0,
+          "maxPoints": 2.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    }
+  ]
+}
