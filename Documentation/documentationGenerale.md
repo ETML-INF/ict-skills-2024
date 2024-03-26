@@ -1,28 +1,31 @@
 # Documentation générale ICT SKILLS
 
 ## Informations utiles :
-- Durée : 1 jour
-- Langue des épreuves : anglais
-- Max 22 ans (Cyber-sécurité/Cloud-computing : max 25 ans)
-- Fréquence championnats régionnaux : annuel
-- Fréquence championnats suisses : bisannuel
+- Durée : **1 jour**(National) / 3-4h (Régional)
+- Langue des épreuves : **anglais**
+- Max **22 ans** (Cyber-sécurité/Cloud-computing : max **25 ans**)
+- Nationalité Suisse requise
+- Fréquence championnats régionnaux : **annuel**
+- Fréquence championnats suisses : **bisannuel**
 - Il faut amener son matériel ([BYOD](https://www.ict-berufsbildung.ch/resources/General-Information_Meisterschaften_Championnats_Campionati_ICT-BBCH8.pdf#page=3))
 - Préparations disponibles [ici](https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-suisses#title%20Accordion__title%20title--pink%20title--center:~:text=ict%2Dberufsbildung.ch-,Pr%C3%A9paration,-.).
-- Contact : +41 58 360 55 50 / info@ict-berufsbildung.ch
-
-## Qui peut participer ? 
-Les jeunes en cours ou fin d’apprentissage ICT finissant premier à l’issue des Championnats régionaux se qualifient pour les Championnats suisses. 
-La qualification dans le nouveau skill 54 Cyber Security, a lieu pendant le Swiss Hacking Challenge (SHC).
-Entre 20 et 25 personnes sont admises par catégorie.
+- Contact : **+41 58 360 55 50** / **info@ict-berufsbildung.ch**    
 
 ## Catégories
-- **IT Software Solutions for Business | Skill 09**
+- **IT Software Solutions for Business** | Skill 09
 - **Mediamatics**
 - **Cloud Computing** | Skill 53
 - **Web Technologies** | Skill 17
 - **Cyber Security** | Skill 54
 
-## Compétences évaluées
+Une seul catégorie doit être choisie préalablement via [le formulaire d'inscription](https://ict-valaiswallis.ch/skills2024)
+
+## Qui peut participer ? 
+Les jeunes (de nationalité Suisse uniquement) en cours ou fin d’apprentissage ICT finissant premier à l’issue des Championnats régionaux se qualifient pour les Championnats suisses. 
+La qualification dans le nouveau skill 54 Cyber Security, a lieu pendant le Swiss Hacking Challenge (SHC).
+Entre 20 et 25 personnes sont admises par catégorie.
+
+## Compétences évaluées | Skill Web Technologies
 ### Général
 - Très bonne connaissance des méthodes de programmation, des paradigmes et de la compréhension du code.
 - Programmation orientée objet.
@@ -56,8 +59,6 @@ Entre 20 et 25 personnes sont admises par catégorie.
 - Connaissance de base en écriture d'expressions régulières.
 
 
-
-
 ## Avantages pour les participants
 
 1. **Développement des compétences professionnelles** : Les compétitions donnent l'occasion à de jeunes talents du monde entier de faire preuve de leurs compétences professionnelles.
@@ -68,6 +69,9 @@ Entre 20 et 25 personnes sont admises par catégorie.
 C'est une excellente occasion pour les participants de montrer leurs compétences, d'apprendre de nouvelles choses et de se mesurer aux meilleurs talents de leur domaine.
 
 ## Liens utiles 
-- https://www.ict-berufsbildung.ch/fr/ictskills2023
-- https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-suisses
-- https://www.ict-berufsbildung.ch/resources/General-Information_Meisterschaften_Championnats_Campionati_ICT-BBCH8.pdf
+- Infos ICTskills2023 : https://www.ict-berufsbildung.ch/fr/ictskills2023
+- PDF Championnat : https://www.ict-berufsbildung.ch/resources/General-Information_Meisterschaften_Championnats_Campionati_ICT-BBCH8.pdf
+- National : https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-suisses
+- Régional : https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-regionaux
+
+- Inscription : https://ict-valaiswallis.ch/skills2024
