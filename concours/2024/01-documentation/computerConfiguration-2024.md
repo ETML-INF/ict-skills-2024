@@ -19,44 +19,6 @@
    - Adaptateurs: Il faut apporter les adaptateurs pour d’autres prises (p. ex. «Schuko»).
    - Écrans: 2 écrans au maximum (La taille des tables est limitée!)
 
-### 4. Compétences évaluées
-### Général
-- Très bonne connaissance des méthodes de programmation, des paradigmes et de la compréhension du code.
-- Programmation orientée objet.
-- Programmation procédurale.
-- Utilisation de différents formats de données (CSV, XML, JSON).
-- Lecture de documentations.
-- Compréhension du code existant.
-
-### Développement Frontend
-- Très bonne connaissance en écriture de JavaScript jusqu'à ECMAScript 2023.
-- Programmation orientée objet en JavaScript.
-- Scope & closure.
-- Utilisation d'un framework.
-
-### Développement Backend
-- Très bonne connaissance dans l'un des langages/plateformes backend disponibles : PHP, Node.js, SQL.
-- Connaissance de base en écriture de requêtes SQL.
-- Les compétiteurs sont libres de choisir PHP ou Node.js pour le développement backend. Toutes les tâches backend peuvent être résolues de manière équivalente dans les deux langages.
-
-### HTML
-- Bonne connaissance en écriture de HTML jusqu'à HTML5.
-- Usage de base de HTML.
-- Connaissance des balises HTML et de leurs attributs ainsi que leur signification.
-- Usabilité et accessibilité.
-
-### CSS
-- Bonne connaissance en écriture de feuilles de style jusqu'à CSS3.
-- Usage de base de CSS.
-- Compréhension des sélecteurs.
-- Pseudo-classes.
-- Utilisation des requêtes média.
-- Héritage.
-- Animations.
-
-### Regex
-- Connaissance de base en écriture d'expressions régulières.
-
 
 
 
