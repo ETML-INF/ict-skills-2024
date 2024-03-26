@@ -4,7 +4,7 @@
    - [Téléchargez l'environnement](https://github.com/skills17/competition-manager/tree/main) depuis GitHub.
 
 2. **Extraction du contenu du dossier et montage du premier conteneur :**
-   - Après le téléchargement, extrayez le contenu du dossier et montez le premier conteneur.
+   - Après le téléchargement, extrayez le contenu du dossier et montez le premier conteneur en utilisant la commande `docker compose up` dans ce dossier-ci.
 
 3. **Accès au dashboard de la compétition :**
    - Rendez-vous sur le [dashboard de la compétition](http://localhost:9999/) et téléchargez le dossier du Championnat Régional 2024.
@@ -16,7 +16,7 @@
 5. **Installation de la version LTS de node.js et lancement de l'application principale :**
    - Une fois les 4 derniers conteneurs montés, [installez la version LTS de node.js](https://nodejs.org/dist/v20.11.1/node-v20.11.1-x64.msi).
    - Lancez l'application principale avec la commande `node setup.js` dans le répertoire `competitions/workspace/regio-2024`.
-     - Choisissez la version PHP en répondant par `y` ou `n`.
+     - Choisissez votre mode de travail (PHP/Node) en répondant par `y` ou `n`.
      - Si une erreur survient en raison de la version de Docker, [mettez Docker à jour](https://docs.docker.com/desktop/install/windows-install/).
      - Si d'autres problèmes surviennent, activez le mode développeur de Windows via : `Paramètres > Espace développeurs`.
 
