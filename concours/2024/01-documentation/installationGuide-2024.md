@@ -6,12 +6,12 @@
 2. **Extraction du contenu du dossier et montage du premier conteneur :**
    - Après le téléchargement, extrayez le contenu du dossier et montez le premier conteneur en utilisant la commande `docker compose up` dans ce dossier-ci.
 
-3. **Accès au dashboard de la compétition :**
+3. **Accès au dashboard de la compétition en local :**
    - Rendez-vous sur le [dashboard de la compétition](http://localhost:9999/) et téléchargez le dossier du Championnat Régional 2024.
    - Déchiffrez le contenu avec le mot de passe : `WebDev2024!Champ`.
 
 4. **Accès aux fichiers de la compétition :**
-   - Accédez aux fichiers de la compétition via le répertoire suivant : `competitions/workspace/regio-2024`.
+   - Accédez aux fichiers de la compétition via le répertoire suivant : `competitions/workspace/regio-2024`.  
 
 5. **Installation de la version LTS de node.js et lancement de l'application principale :**
    - Une fois les 4 derniers conteneurs montés, [installez la version LTS de node.js](https://nodejs.org/dist/v20.11.1/node-v20.11.1-x64.msi).
