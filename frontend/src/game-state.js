@@ -2,68 +2,91 @@ import { AIPlayer } from "./ai-player.js";
 import { Player } from "./player.js";
 
 export class GameState {
-    constructor() {
-        /** @type {Player} */
-        this.currentPlayer;
+  constructor() {
+    this.currentPlayer = null;
+    this.opponent = null;
+    this.dialog = document.createElement("dialog"); // Assuming dialog is prepared in HTML and referenced here
+  }
 
-        /** @type {Player} */
-        this.opponent;
+  /**
+   * Assign the players.
+   * Enable/Disable the correct grids.
+   *
+   * @param {Player} player1 the player who should have the first turn
+   * @param {Player} player2 the second player
+   */
+  setPlayers(player1, player2) {
+    this.currentPlayer = player1;
+    this.opponent = player2;
 
-        /** @type {HTMLDialogElement} */
-        this.dialog;
+    // Assuming Player class has enable() and disable() methods to manage their grid's interactivity
+    this.currentPlayer.grid.enable();
+    this.opponent.grid.disable();
+  }
+
+  /**
+   * Switch the players (`currentPlayer` and `opponent`).
+   * Enable/Disable the correct grids.
+   */
+  switchPlayers() {
+    [this.currentPlayer, this.opponent] = [this.opponent, this.currentPlayer];
+
+    this.currentPlayer.grid.enable();
+    this.opponent.grid.disable();
+  }
+
+  /**
+   * On a turn you have to do the following:
+   *
+   * - mark the correct tile on the correct grid
+   * - check if the player has won - if so, open the winning dialog
+   * - switch the players
+   * - if the next player is an AI invoke a turn by calling `playTurn()`
+   *
+   * @param {string} location the chess notation style location - eg. A1, B5, ...
+   */
+  onTurn(location) {
+    this.currentPlayer.grid.markTile(location);
+
+    if (this.checkWin()) {
+      this.openWinningDialog();
+      return;
     }
 
-    /**
-     * Assign the players.
-     * Enable/Disable the correct grids.
-     *
-     * @param {Player} player1 the player who should have the first turn
-     * @param {Player} player2 the second player
-     */
-    setPlayers(player1, player2) {
-        // TODO
-    }
+    this.switchPlayers();
 
-    /**
-     * Switch the players (`currentPlayer` and `opponent`).
-     * Enable/Disable the correct grids.
-     */
-    switchPlayers() {
-        // TODO
+    if (this.currentPlayer instanceof AIPlayer) {
+      setTimeout(() => {
+        this.currentPlayer.playTurn();
+      }, 1000); // Simulate some delay for AI's turn
     }
+  }
 
-    /**
-     * On a turn you have to do the following:
-     *
-     * - mark the correct tile on the correct grid
-     * - check if the player has won - if so, open the winning dialog
-     * - switch the players
-     * - if the next player is an AI invoke a turn by calling `playTurn()`
-     *
-     * @param {string} location the chess notation style location - eg. A1, B5, ...
-     */
-    onTurn(location) {
-        // TODO
-    }
+  /**
+   * Determine if the current player has won the game by sinking all ships.
+   *
+   * @returns {boolean}
+   */
+  checkWin() {
+    // Assuming we have a method to calculate total hits and compare it with total ship tiles
+    return (
+      this.opponent.getNumberOfShipTiles() ===
+      this.currentPlayer.grid.getNumberOfHits()
+    );
+  }
 
-    /**
-     * Determine if the current player has won the game by sinking all ships.
-     *
-     * @returns {boolean}
-     */
-    checkWin() {
-        // TODO
-    }
-
-    /**
-     * Open the winning dialog (provided in the HTML as a <dialog> element)
-     * as a modal and show one of the following messages respectively:
-     * - "AI wins!"
-     * - "Player wins!"
-     */
-    openWinningDialog() {
-        // TODO
-    }
+  /**
+   * Open the winning dialog (provided in the HTML as a <dialog> element)
+   * as a modal and show one of the following messages respectively:
+   * - "AI wins!"
+   * - "Player wins!"
+   */
+  openWinningDialog() {
+    const message =
+      this.currentPlayer instanceof AIPlayer ? "AI wins!" : "Player wins!";
+    this.dialog.textContent = message; // Clear existing text and add new message
+    this.dialog.showModal(); // Use show() if you don't want it to be modal
+  }
 }
 
 // initialize state and export for further use
