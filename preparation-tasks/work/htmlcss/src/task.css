@@ -11,52 +11,57 @@
     0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
 }
 
-#task-1 .snowboarder.snow {
+#task-1 .snow.snowboarder {
   text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
     0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
 }
 
-#task-2 .skier {
+#task-2 .snow[data-target] {
   text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
     0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
 }
 
-#task-3 {
+#task-3 .snow.snowboarder[data-target] {
   text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
     0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
 }
 
-#task-4 {
+#task-3 .jump.sport[data-target] {
   text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
     0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
 }
 
-#task-5 {
+#task-4 .snow[data-target] {
   text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
     0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
 }
 
-#task-6 {
+#task-5 .snow.snowboarder[data-target] {
   text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
     0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
 }
 
-#task-7 {
+#task-6 .snow.skier[data-target] {
   text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
     0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
 }
 
-#task-8 {
+#task-7 [data-target] {
   text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
     0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
 }
 
-#task-9 {
+#task-8 .snow[data-target] {
   text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
     0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
 }
 
-#task-10 {
+#task-9 [data-target] {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-10 .snow.surfer[data-target] {
   text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
     0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
 }
