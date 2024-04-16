@@ -18,15 +18,24 @@ import { InvalidTileFormatError, TileOutOfBoundsError } from "../lib/errors.js";
  */
 
 export const validateLocation = (location, maxWidth, maxHeight) => {
-  if (!/^[A-J](10|[1-9])$/.test(location)) {
-    throw new InvalidTileFormatError("Location format is incorrect");
+  // Check if the location format is valid
+  if (!/^[A-Z]([0-9]{1,2})$/.test(location)) {
+    throw new InvalidTileFormatError(
+      `Invalid format "${location}" for tile location.`
+    );
   }
 
   const x = location.charCodeAt(0) - "A".charCodeAt(0);
   const y = parseInt(location.substring(1), 10) - 1;
 
-  if (x < 0 || x >= maxWidth || y < 0 || y >= maxHeight) {
-    throw new TileOutOfBoundsError("Location is out of bounds");
+  // Check if the location is within the x-axis bounds
+  if (x < 0 || x >= maxWidth) {
+    throw new TileOutOfBoundsError(`Location "${location}" out of bounds.`);
+  }
+
+  // Check if the location is within the y-axis bounds
+  if (y < 0 || y >= maxHeight) {
+    throw new TileOutOfBoundsError(`Location "${location}" out of bounds.`);
   }
 
   return true;
@@ -78,9 +87,13 @@ export const coordinatesToLocation = (x, y) => {
  * @returns {string}
  */
 export const generateLocation = (maxWidth, maxHeight) => {
+  if (maxWidth < 1 || maxHeight < 1) {
+    throw new Error("maxWidth and maxHeight must be at least 1");
+  }
   const x = Math.floor(Math.random() * maxWidth);
-  const y = Math.floor(Math.random() * maxHeight) + 1; // Ensure y is 1-indexed
+  const y = Math.floor(Math.random() * maxHeight) + 1; // Ensure y is 1-indexed by adding 1
   const letter = String.fromCharCode("A".charCodeAt(0) + x);
+
   return `${letter}${y}`;
 };
 

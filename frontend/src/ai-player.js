@@ -12,7 +12,7 @@ export class AIPlayer extends Player {
   playTurn() {
     let location;
     do {
-      location = generateLocation();
+      location = generateLocation(12, 14);
     } while (State.opponent.grid.hasBeenMarked(location));
     if (State.currentPlayer != null) {
       setTimeout(() => {

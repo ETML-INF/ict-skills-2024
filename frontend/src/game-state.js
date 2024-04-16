@@ -20,8 +20,8 @@ export class GameState {
     this.opponent = player2;
 
     // Assuming Player class has enable() and disable() methods to manage their grid's interactivity
-    this.currentPlayer.grid.enable();
-    this.opponent.grid.disable();
+    this.currentPlayer.grid.disable();
+    this.opponent.grid.enable();
   }
 
   /**
@@ -31,8 +31,8 @@ export class GameState {
   switchPlayers() {
     [this.currentPlayer, this.opponent] = [this.opponent, this.currentPlayer];
 
-    this.currentPlayer.grid.enable();
-    this.opponent.grid.disable();
+    this.currentPlayer.grid.disable();
+    this.opponent.grid.enable();
   }
 
   /**
@@ -68,7 +68,15 @@ export class GameState {
    * @returns {boolean}
    */
   checkWin() {
-    // Assuming we have a method to calculate total hits and compare it with total ship tiles
+    if (
+      !this.currentPlayer ||
+      !this.opponent ||
+      !this.currentPlayer.grid ||
+      !this.opponent.grid
+    ) {
+      return true;
+    }
+
     return (
       this.opponent.getNumberOfShipTiles() ===
       this.currentPlayer.grid.getNumberOfHits()

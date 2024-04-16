@@ -2,52 +2,36 @@ import { validateLocation } from "./util.js";
 
 export class Grid {
   /**
-   * When creating a new grid you will have to do the following tasks:
+   * When creating a new grid, you need to perform the following tasks:
+   * - Assign constructor arguments to class properties
+   * - Initialize an empty array for tiles
+   * - Set grid display styles on the DOM element to create a grid with the specified number of columns and rows
+   * - Create the legend and all tiles
    *
-   * - Assign arguments to class properties for later use
-   * - Setup an empty tiles array
-   * - Use the `grid-template-columns` and `grid-template-rows` styles on the DOM element
-   *   to create a grid with the correct number of columns and rows, including the legend,
-   *   with a respective size of 1fr.
-   * - create the legend
-   * - create all tiles
-   *
-   * @param {HTMLElement} element DOM Element of the grid
-   * @param {number} width width of the grid
-   * @param {number} height height of the grid
+   * @param {HTMLElement} element - The DOM Element for the grid
+   * @param {number} width - Width of the grid
+   * @param {number} height - Height of the grid
    */
   constructor(element, width, height) {
     this.element = element;
     this.width = width;
     this.height = height;
-    this.tiles = []; // Setup an empty tiles array
+    this.tiles = [];
 
-    // Setup grid styles
     this.element.style.display = "grid";
     this.element.style.gridTemplateColumns = `repeat(${this.width + 1}, 1fr)`;
     this.element.style.gridTemplateRows = `repeat(${this.height + 1}, 1fr)`;
 
-    this.createLegend(); // Call to create the legend
-    this.createTiles(); // Call to create all tiles
+    this.createLegend();
+    this.createTiles();
   }
 
   /**
-   * Create the legend for the x and y axis.
-   *
-   * Elements must...
-   * - be a span element
-   * - have the correct character (x-axis) or number (y-axis)
-   * - have the class `grid-legend`
-   * - have the class `grid-legend-x-axis` or `grid-legend-y-axis` respectively
-   * - have the data attribute `data-legend` with value `x` or `y` respectively - eg. `data-legend="x"`
-   * - be appended to the Grid DOM element (provided in constructor)
-   *
-   * Hint: CSS will automatically take care of the correct placement in the grid
-   *       if all classes are assigned correctly
+   * Creates the legend for the x and y axes with appropriate classes and data attributes.
    */
   createLegend() {
     // X-axis legend
-    for (let i = 0; i < this.width; i++) {
+    for (let i = 1; i <= this.width; i++) {
       const charCode = "A".charCodeAt(0) + i;
       const span = document.createElement("span");
       span.className = "grid-legend grid-legend-x-axis";
@@ -67,16 +51,7 @@ export class Grid {
   }
 
   /**
-   * Create all playable tiles in the grid.
-   *
-   * You must...
-   * - generate the correct location for each tile
-   * - use `createSingleTile` to create a tile
-   * - append all tiles to the Grid DOM element
-   * - put all tiles in the `tiles` array of this class
-   *
-   * Hint: CSS will automatically take care of the correct placement in the grid
-   *       if all classes are assigned correctly
+   * Generates and appends tiles to the grid and stores them in an array.
    */
   createTiles() {
     for (let y = 1; y <= this.height; y++) {
@@ -91,59 +66,58 @@ export class Grid {
   }
 
   /**
-   * Create a single tile with the provided location.
+   * Creates a single tile with a specified location.
    *
-   * The tile must...
-   * - be a button
-   * - have the `data-tile` attribute
-   * - have the `data-location` attribute with the `location` as a value - eg. `data-location="A1"`
-   *
-   * @param {string} location the chess notation style location of this tile - eg. A1, B5, ...
-   * @returns {HTMLButtonElement} the tile that was created
+   * @param {string} location - The chess notation style location of this tile
+   * @returns {HTMLButtonElement} - The created tile
    */
   createSingleTile(location) {
     const tile = document.createElement("button");
+    tile.className = "grid-tile"; // Added class for styling purposes
     tile.setAttribute("data-tile", "");
     tile.setAttribute("data-location", location);
     return tile;
   }
 
   /**
-   * Find a tile based on the location within the current grid.
+   * Finds a tile based on the location within the current grid, handling case sensitivity and location validation.
    *
-   * You must...
-   * - make this work with upper and lowercase locations - eg. a1, B2, ...
-   * - validate if the location format is correct
-   * - throw a `InvalidTileFormatError` if the location format is not correct
-   * - validate if the location is in bounds of the grid
-   * - throw a `TileOutOfBoundsError` if the location is out of bounds of the grid
-   *
-   * @param {string} location the chess notation style location of this tile - eg. A1, B5, ...
-   * @return {HTMLButtonElement}
+   * @param {string} location - The chess notation style location of this tile
+   * @return {HTMLButtonElement} - The found tile
    */
   findTile(location) {
-    location = location.toUpperCase();
-    if (!validateLocation(location)) {
-      throw new Error("InvalidTileFormatError");
+    if (typeof location !== "string" || location.trim() === "") {
+      throw new Error(`Invalid format "${location}" for tile location.`);
     }
+
+    location = location.toUpperCase();
+    const isValidFormat = /^[A-Z]\d+$/; // Assure que le format est une lettre suivie de chiffres
+    if (!isValidFormat.test(location)) {
+      throw new Error(`Invalid format "${location}" for tile location.`);
+    }
+
+    if (!validateLocation(location)) {
+      throw new Error(`Location "${location}" out of bounds.`);
+    }
+
     const tile = this.tiles.find(
       (t) => t.getAttribute("data-location") === location
     );
     if (!tile) {
-      throw new Error("TileOutOfBoundsError");
+      throw new Error(`Location "${location}" out of bounds.`);
     }
     return tile;
   }
 
   /**
-   * Disable all tiles in the grid.
+   * Disables all tiles in the grid.
    */
   disable() {
     this.tiles.forEach((tile) => (tile.disabled = true));
   }
 
   /**
-   * Enable all tiles in the grid expect the ones that have already been marked.
+   * Enables all tiles in the grid except those that are marked.
    */
   enable() {
     this.tiles.forEach((tile) => {
@@ -154,13 +128,9 @@ export class Grid {
   }
 
   /**
-   * Mark the correct tile on the provided location
+   * Marks a tile as used based on the provided location, disabling it.
    *
-   * The tile must...
-   * - have the `data-marked` attribute
-   * - be disabled
-   *
-   * @param {string} location the chess notation style location of this tile - eg. A1, B5, ...
+   * @param {string} location - The chess notation style location of this tile
    */
   markTile(location) {
     const tile = this.findTile(location);
@@ -169,10 +139,9 @@ export class Grid {
   }
 
   /**
-   * Place a ship on the tile of the provided location
-   * The tile must have the `data-ship` attribute.
+   * Places a ship on the tile at the specified location.
    *
-   * @param {string} location the chess notation style location of this tile - eg. A1, B5, ...
+   * @param {string} location - The chess notation style location of this tile
    */
   placeShipOnTile(location) {
     const tile = this.findTile(location);
@@ -180,20 +149,20 @@ export class Grid {
   }
 
   /**
-   * Determine if the tile of the provided location has already been marked
+   * Checks if a tile at the specified location has been marked.
    *
-   * @param {string} location the chess notation style location of this tile - eg. A1, B5, ...
-   * @returns {boolean}
+   * @param {string} location - The chess notation style location of this tile
+   * @returns {boolean} - True if the tile has been marked, otherwise false
    */
   hasBeenMarked(location) {
     const tile = this.findTile(location);
-    return tile.hasAttribute("data-marked");
+    return tile !== undefined && tile.hasAttribute("data-marked");
   }
 
   /**
-   * Determine the number of hit ship-tiles.
+   * Counts the number of tiles that have been hit.
    *
-   * @returns {number}
+   * @returns {number} - The number of tiles that have been hit
    */
   getNumberOfHits() {
     return this.tiles.filter(
