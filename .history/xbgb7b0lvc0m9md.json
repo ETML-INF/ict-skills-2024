@@ -1,0 +1,190 @@
+{
+  "time": 1713854331,
+  "testResults": [
+    {
+      "group": "Util",
+      "points": 6,
+      "maxPoints": 16.5,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "getMoveData > can read a pawn move: white plays 3. e4",
+          "points": 0.75,
+          "maxPoints": 0.75,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a knight move: white plays 3. Nf3",
+          "points": 0.75,
+          "maxPoints": 0.75,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a knight move with identifier: white plays 3. N1f3",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a bishop move: white plays 3. Bg5",
+          "points": 0.75,
+          "maxPoints": 0.75,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a rook move: white plays 3. Rh3",
+          "points": 0.75,
+          "maxPoints": 0.75,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a queen move: white plays 3. Qd5",
+          "points": 0.75,
+          "maxPoints": 0.75,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a queen move with file and rank identifier: white plays 3. Qh4e1",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a king move: white plays 3. Ke2",
+          "points": 0.75,
+          "maxPoints": 0.75,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a capturing pawn move: white plays 3. cxd4",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a capturing bishop move: white plays 3. Bxb5",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a checking rook move: white plays 3. Re1+",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a capturing and checking knight move: white plays 3. Nxc7+",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a capturing and checkmating queen move: white plays 3. Qxf7#",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a short castle move: white plays 3. O-O",
+          "points": 0.75,
+          "maxPoints": 0.75,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "getMoveData > can read a long castle move: white plays 3. O-O-O",
+          "points": 0.75,
+          "maxPoints": 0.75,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "readPGN > returns an object",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "readPGN > contains the white player",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "readPGN > contains the black player",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "readPGN > contains the result",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "readPGN > contains the (valid) date",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "readPGN > contains the moves",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "readPGN > handles game ending move by white",
+          "points": 0,
+          "maxPoints": 0.75,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    }
+  ]
+}

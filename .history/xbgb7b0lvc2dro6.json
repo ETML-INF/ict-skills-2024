@@ -1,0 +1,150 @@
+{
+  "time": 1713857294,
+  "testResults": [
+    {
+      "group": "Position",
+      "points": 5,
+      "maxPoints": 20.5,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "movePiece > moves the correct piece to the target square",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "movePiece > captures an existing piece on the target square",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "movePiece > is immutable and returns a new position",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "canPieceMove > can find the correct pawn to move one forwards",
+          "points": 0,
+          "maxPoints": 1.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "canPieceMove > can find the correct pawn to move two forwards",
+          "points": 0,
+          "maxPoints": 1.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "canPieceMove > can find the correct pawn to capture with",
+          "points": 0,
+          "maxPoints": 1.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "canPieceMove > can find the correct rook",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "canPieceMove > can find the correct knight",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "canPieceMove > can find the correct bishop",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "canPieceMove > can find the correct queen",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "canPieceMove > can find the correct king",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "move > can capture with the correct pawn",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "move > can move the correct, unobstructed pawn forwards",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "move > can capture with the correct, unobstructed rook",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "move > can capture with the correct, unobstructed queen",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "move > can castle short",
+          "points": 2,
+          "maxPoints": 2,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "move > can castle long",
+          "points": 2,
+          "maxPoints": 2,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "time": 1711437917,
+  "testResults": [
+    {
+      "group": "User Interface",
+      "points": 0,
+      "maxPoints": 8,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "can create the board",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can get a square",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can render a piece",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can clear pieces",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can render game info",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can upload a PGN",
+          "points": 0,
+          "maxPoints": 2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can close the dialog after upload",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    }
+  ]
+}
