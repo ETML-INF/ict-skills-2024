@@ -1,6 +1,6 @@
 ![IctSkills](https://www.ict-berufsbildung.ch/temp/compressed_resize_512x270_Logo_ICTskills2018_RGB.webp)
 
-# <span style="font-size:50px; font-weight:bold">Documentation générale : </span>
+# <span style="font-size:50px; font-weight:bold">Documentation générale </span>
 
 ## Informations utiles :
 - Durée : **1 jour**(National) / **3-4h** (Régional)
