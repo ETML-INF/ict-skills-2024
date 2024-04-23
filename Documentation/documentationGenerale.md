@@ -71,7 +71,8 @@ Entre **20 et 25** personnes sont admises **par catégorie**.
 C'est une excellente occasion pour les participants de montrer leurs compétences, d'apprendre de nouvelles choses et de se mesurer aux meilleurs talents de leur domaine.
 
 ## Liens utiles 
-- Infos ICTskills2023 : https://www.ict-berufsbildung.ch/fr/ictskills2023
+- Infos ICTskills : https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-suisses
+- Infos ICTskills 2023 : https://www.ict-berufsbildung.ch/fr/ictskills2023
 - PDF Championnat : https://www.ict-berufsbildung.ch/resources/General-Information_Meisterschaften_Championnats_Campionati_ICT-BBCH8.pdf
 - National : https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-suisses
 - Régional : https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-regionaux
