@@ -1,9 +1,9 @@
 ![IctSkills](https://www.ict-berufsbildung.ch/temp/compressed_resize_512x270_Logo_ICTskills2018_RGB.webp)
 
-# Documentation générale ICT SKILLS
+# <span style="font-size:50px; font-weight:bold">Documentation générale : </span>
 
 ## Informations utiles :
-- Durée : **1 jour**(National) / 3-4h (Régional)
+- Durée : **1 jour**(National) / **3-4h** (Régional)
 - Langue des épreuves : **anglais**
 - Max **22 ans** (Cyber-sécurité/Cloud-computing : max **25 ans**)
 - **Nationalité Suisse** requise
@@ -24,7 +24,7 @@
 
 ## Qui peut participer ? 
 Les jeunes (**de nationalité Suisse uniquement**) **en cours ou fin d’apprentissage** ICT finissant premier à l’issue des Championnats régionaux se qualifient pour les Championnats suisses. 
-La qualification dans le nouveau skill 54 Cyber Security, a lieu pendant le **Swiss Hacking Challenge (SHC)**.
+La qualification dans le nouveau skill 54 Cyber Security, a lieu pendant le Swiss Hacking Challenge (SHC).
 Entre **20 et 25** personnes sont admises **par catégorie**.
 
 ## Compétences évaluées | Skill Web Technologies
@@ -47,7 +47,7 @@ Entre **20 et 25** personnes sont admises **par catégorie**.
 ### HTML
 - Bonne connaissance en écriture de **HTML** jusqu'à HTML5.
 - Usage de base de HTML.
-- Connaissance des **balises** HTML et de leurs **attributs** ainsi que leur signification.
+- Connaissance des **balises HTML** et de leurs **attributs** ainsi que leur signification.
 - Usabilité et accessibilité.
 ### CSS
 - Bonne connaissance en écriture de feuilles de style **jusqu'à CSS3**.
