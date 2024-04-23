@@ -1,0 +1,70 @@
+{
+  "time": 1713251190,
+  "testResults": [
+    {
+      "group": "Util",
+      "points": 5,
+      "maxPoints": 6,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "validate location > can throw errors on invalid formats",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "validate location > can throw errors on invalid locations > grid with size 10x10",
+          "points": 0,
+          "maxPoints": 0.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "validate location > can throw errors on invalid locations > grid with size 14x12",
+          "points": 0,
+          "maxPoints": 0.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "location/coordinate conversion > can convert a location to coordinates",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "location/coordinate conversion > can convert coordinates to a location",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "location creation > can generate a random location",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "location creation > can move a location",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    }
+  ]
+}
