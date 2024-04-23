@@ -27,7 +27,25 @@ Les jeunes (**de nationalité Suisse uniquement**) **en cours ou fin d’apprent
 La qualification dans le nouveau skill 54 Cyber Security, a lieu pendant le Swiss Hacking Challenge (SHC).
 Entre **20 et 25** personnes sont admises **par catégorie**.
 
-## Compétences évaluées | Skill Web Technologies
+## Avantages pour les participants
+
+1. **Développement des compétences professionnelles** : Les compétitions donnent l'occasion à de jeunes talents du monde entier de faire preuve de leurs **compétences professionnelles**.
+2. **Compétition intense** : Lors des ICTskills2024, de jeunes cracks en informatique ou en médiamatique de toute la Suisse se livrent une **intense compétition**.
+3. **Diversité des défis** : Les participants peuvent programmer à **plein régime**, élaborer des **sites Web**, mettre en place des **infrastructures** informatiques ou développer des concepts **marketing**.
+4. **Reconnaissance mondiale** : Les participants qualifiés pourront participer aux **WorldSkills Competition** (par ex : à Lyon en France ou Paris).
+
+C'est une excellente occasion pour les participants de montrer leurs compétences, d'apprendre de nouvelles choses et de se mesurer aux meilleurs talents de leur domaine.
+
+## Liens utiles 
+- Infos ICTskills : https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-suisses
+- Infos ICTskills 2023 : https://www.ict-berufsbildung.ch/fr/ictskills2023
+- PDF Championnat : https://www.ict-berufsbildung.ch/resources/General-Information_Meisterschaften_Championnats_Campionati_ICT-BBCH8.pdf
+- National : https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-suisses
+- Régional : https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-regionaux
+
+- Inscription : https://ict-valaiswallis.ch/skills2024
+
+# <span style="font-size:50px; font-weight:bold">Compétences évaluées | Skill Web Technologies</span>
 ### Général
 - Très bonne connaissance des **méthodes de programmation**, des paradigmes et de la compréhension du code.
 - Programmation **orientée objet**.
@@ -61,20 +79,4 @@ Entre **20 et 25** personnes sont admises **par catégorie**.
 - Connaissance de base en écriture d'**expressions régulières**.
 
 
-## Avantages pour les participants
 
-1. **Développement des compétences professionnelles** : Les compétitions donnent l'occasion à de jeunes talents du monde entier de faire preuve de leurs **compétences professionnelles**.
-2. **Compétition intense** : Lors des ICTskills2024, de jeunes cracks en informatique ou en médiamatique de toute la Suisse se livrent une **intense compétition**.
-3. **Diversité des défis** : Les participants peuvent programmer à **plein régime**, élaborer des **sites Web**, mettre en place des **infrastructures** informatiques ou développer des concepts **marketing**.
-4. **Reconnaissance mondiale** : Les participants qualifiés pourront participer aux **WorldSkills Competition** (par ex : à Lyon en France ou Paris).
-
-C'est une excellente occasion pour les participants de montrer leurs compétences, d'apprendre de nouvelles choses et de se mesurer aux meilleurs talents de leur domaine.
-
-## Liens utiles 
-- Infos ICTskills : https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-suisses
-- Infos ICTskills 2023 : https://www.ict-berufsbildung.ch/fr/ictskills2023
-- PDF Championnat : https://www.ict-berufsbildung.ch/resources/General-Information_Meisterschaften_Championnats_Campionati_ICT-BBCH8.pdf
-- National : https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-suisses
-- Régional : https://www.ict-berufsbildung.ch/formation-initiale/championnats-des-metiers/championnats-regionaux
-
-- Inscription : https://ict-valaiswallis.ch/skills2024
