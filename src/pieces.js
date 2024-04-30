@@ -83,6 +83,7 @@ export function canKingMove(move, piece, position) {
  * @return boolean
  */
 export function canQueenMove(move, piece, position) {
+    // @todo
 }
 
 /**
