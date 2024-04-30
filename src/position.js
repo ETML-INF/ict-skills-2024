@@ -69,7 +69,12 @@ export const STARTING_POSITION = [
  * @returns {import('./pieces.js').Piece[]}
  */
 export function movePiece(piece, square, position) {
-    // @todo
+    position.map((pos) => {
+        if(pos.notation == piece.notation) {
+            piece.square = square;
+        }
+    });
+    return position;
 }
 
 /**

@@ -64,7 +64,15 @@ export class King extends Piece {
  * @return boolean
  */
 export function canKingMove(move, piece, position) {
-    // @todo
+    position.forEach((pos) => {
+        if(pos.square == move.targetSquare) {
+            if(pos.color == piece.color) {
+                return false
+            } else {
+                return true
+            }
+        }
+    })
 }
 
 /**
@@ -119,5 +127,12 @@ export function canBishopMove(move, piece, position) {
  * @return boolean
  */
 export function canPawnMove(move, piece, position) {
-    // @todo
+    position.forEach((pos) => {
+        let square = pos.square;    
+        let rank = parseInt(square[1])
+        if(rank - parseInt(move.targetSquare[1]) == 1 || rank - parseInt(move.targetSquare[1]) == 2) {
+            return true
+        }
+    });
+    return false
 }
