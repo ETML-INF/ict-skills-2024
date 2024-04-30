@@ -4,7 +4,7 @@
 import express from "express";
 import { logger } from "./logger.js";
 import { sendNotFound } from "./util.js";
-import { exampleRouter } from "./routes/example.js";
+import { cartRouter } from "./routes/cart.js";
 
 const app = express();
 
@@ -15,10 +15,10 @@ app.use(express.json());
 app.use(logger);
 
 // activate sub-routes
-app.use("/api/example", exampleRouter);
+app.use("/api/carts", cartRouter);
 
 // map every other route and return 404
-app.use("/*", (req, res) => sendNotFound(req, res));
+app.use((req, res) => sendNotFound(req, res,));
 
 // add error handler for uncaught errors
 app.use("/*", (err, req, res, _next) => {

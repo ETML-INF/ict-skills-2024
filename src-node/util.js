@@ -1,3 +1,5 @@
+import { error } from "console";
+
 /**
  * Sends a 404 error to the client.
  * @param req {e.Request}
@@ -5,9 +7,10 @@
  * @param _next {e.NextFunction}
  * @param customMessage {string} Custom error message to be returned
  */
-export function sendNotFound(req, res, _next, customMessage = "Not found") {
-  res.status(404);
-  res.send({ error: customMessage });
+export function sendNotFound(req, res, _next, customMessage = "Route not found") {
+  return res.status(404).json({ error: customMessage })
+  // res.status(404);
+  // res.send({ error: customMessage });
 }
 
 /**

@@ -1,9 +1,8 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-CREATE TABLE `cart`
-(
-    `id`     varchar(50) NOT NULL,
+CREATE TABLE `cart` (
+    `id` varchar(50) NOT NULL,
     `status` varchar(50) NOT NULL
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
