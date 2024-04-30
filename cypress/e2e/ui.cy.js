@@ -113,6 +113,7 @@ describe('UI', () => {
         // PAS FINI NON PLUS WADDAHELL ?? ? ?? ?
         cy.window().then((win) => {
             win.chess.selectGame().then((game) => {
+                console.log(game);
                 expect(game.replace(/\s/g, '')).to.equal(
                     GAME_OF_THE_CENTURY.replace(/\s/g, '')
                 );

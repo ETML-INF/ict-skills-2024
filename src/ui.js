@@ -132,8 +132,31 @@ export function renderGameInfo(game) {
  * @returns {Promise<string>} Portable Game Notation (PGN)
  */
 export function selectGame() {
-    // PAS FINI
-    console.log(game-imput)
-    return(readGameFromPGN(game-input));
+    // GAME IS THE HTML ELEMENT AKIFNEJGNSEJGNBIEJGBEHT (ITS NOT SUPPSOED TO BE)
 
+        return new Promise((resolve, reject) => {
+      
+            const game = document.getElementById("game-input");
+
+          if (game != null) {
+            resolve(game);
+          } else {
+            reject(Error("game is null"));
+          }
+        });
 }
+
+/*
+let selectGamePromise = new Promise(function(getGameInputElement) {
+    getGameInputElement();
+})
+return(selectGamePromise);
+
+function getGameInputElement() {
+    const game = document.getElementById("game-input");
+    return(game);
+}
+
+function getGameInputElementFail() {
+    alert("invalid file");
+}*/
