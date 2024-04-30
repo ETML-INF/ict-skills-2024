@@ -20,7 +20,7 @@
 - **Web Technologies** | Skill 17
 - **Cyber Security** | Skill 54
 
-**Une seul catégorie doit être choisie préalablement via <u>[le formulaire d'inscription](https://ict-valaiswallis.ch/skills2024)</u>**
+**Une seul catégorie** doit être **choisie** préalablement via **[le formulaire d'inscription](https://ict-valaiswallis.ch/skills2024)**
 
 ## Qui peut participer ? 
 Les jeunes (**de nationalité Suisse uniquement**) **en cours ou fin d’apprentissage** ICT finissant premier à l’issue des Championnats régionaux se qualifient pour les Championnats suisses. 
