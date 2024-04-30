@@ -110,7 +110,7 @@ describe('UI', () => {
 
     it('can upload a PGN', () => {
         cy.showDialog();
-
+        // PAS FINI NON PLUS WADDAHELL ?? ? ?? ?
         cy.window().then((win) => {
             win.chess.selectGame().then((game) => {
                 expect(game.replace(/\s/g, '')).to.equal(

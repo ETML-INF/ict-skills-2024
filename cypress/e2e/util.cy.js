@@ -243,23 +243,27 @@ describe('Util', () => {
         });
 
         it('contains the white player', () => {
-            expect(readGameFromPGN(GAME_OF_THE_CENTURY).white).to.equal(
+            expect((readGameFromPGN(GAME_OF_THE_CENTURY).str).White).to.equal(
                 'Donald Byrne'
             );
         });
 
         it('contains the black player', () => {
-            expect(readGameFromPGN(GAME_OF_THE_CENTURY).black).to.equal(
+            expect(readGameFromPGN(GAME_OF_THE_CENTURY).str.Black).to.equal(
                 'Robert James Fischer'
             );
         });
 
         it('contains the result', () => {
-            expect(readGameFromPGN(GAME_OF_THE_CENTURY).result).to.equal('0-1');
+            expect(readGameFromPGN(GAME_OF_THE_CENTURY).str.Result).to.equal('0-1');
         });
 
         it('contains the (valid) date', () => {
-            const date = readGameFromPGN(GAME_OF_THE_CENTURY).date;
+            expect(readGameFromPGN(GAME_OF_THE_CENTURY).str.Black).to.equal(
+                'Robert James Fischer'
+            );
+            const date = (readGameFromPGN(GAME_OF_THE_CENTURY).str.Date);
+            console.log(date);
             expect(date instanceof Date).to.be.true;
             expect(isNaN(date)).to.be.false;
             expect(date.getTime()).to.equal(new Date('1956.10.17').getTime());

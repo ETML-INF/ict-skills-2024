@@ -11,16 +11,7 @@
  * Create a tr > td structure inside the table (ID "board") resembling the 64 squares of a chess board.
  */
 export function createBoard() {
-    let table = document.getElementById("board");
-    for (let i = 0; i < 8; i++) {
-        let tr = document.createElement("tr");
-        table.appendChild(tr);
-        for(let j = 0; j < 8; j++) {
-            let td = document.createElement("td");
-            td.id = `${j} ${i}`;
-            tr.appendChild(td);
-        }
-    }
+    // @todo
 }
 
 /**
@@ -28,48 +19,7 @@ export function createBoard() {
  * @param {import("./util").Square} square
  */
 export function getSquare(square) {
-    const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h"];
-    const letter = alphabet.indexOf(square[0]);
-    let number = parseInt(square[1], 10) - 1;
-    if(number == 7) {
-        number = 0;
-    } else if(number == 6) {
-        number = 1;
-    } else if(number == 5) {
-        number = 2;
-    } else if(number == 4) {
-        number = 3;
-    } else if(number == 3) {
-        number = 4;
-    } else if(number == 2) {
-        number = 5;
-    } else if(number == 1) {
-        number = 6;
-    } else if(number == 0) {
-        number = 7;
-    }
-    return document.getElementById(`${letter} ${number}`);
-}
-
-function changeNum(num) {
-    switch(num) {
-        case 0:
-            return 7;
-        case 1:
-            return 6;
-        case 2:
-            return 5;
-        case 3:
-            return 4;
-        case 4:
-            return 3;
-        case 5:
-            return 2;
-        case 6:
-            return 1;
-        case 7:
-            return 0;
-    }
+    // @todo
 }
 
 /**
@@ -77,35 +27,14 @@ function changeNum(num) {
  * @param {import("./pieces.js").Piece[]} position
  */
 export function renderPieces(position) {
-    const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h"]
-    position.forEach((pos) => {
-        let td = document.getElementById(`${alphabet.indexOf(pos.square[0])} ${changeNum(parseInt(pos.square[1]) - 1)}`)
-        if(pos.notation == "R") {
-            (pos.color == "w") ? td.style.backgroundImage = "url('lib/pieces/wr.png')" : td.style.backgroundImage = "url('lib/pieces/br.png')";
-        } else if(pos.notation == "N") {
-            (pos.color == "w") ? td.style.backgroundImage = "url('lib/pieces/wn.png')" : td.style.backgroundImage = "url('lib/pieces/bn.png')";
-        } else if(pos.notation == "B") {
-            (pos.color == "w") ? td.style.backgroundImage = "url('lib/pieces/wb.png')" : td.style.backgroundImage = "url('lib/pieces/bb.png')";
-        } else if(pos.notation == "Q") {
-            (pos.color == "w") ? td.style.backgroundImage = "url('lib/pieces/wq.png')" : td.style.backgroundImage = "url('lib/pieces/bq.png')";
-        } else if(pos.notation == "K") {
-            (pos.color == "w") ? td.style.backgroundImage = "url('lib/pieces/wk.png')" : td.style.backgroundImage = "url('lib/pieces/bk.png')";
-        } else {
-            (pos.color == "w") ? td.style.backgroundImage = "url('lib/pieces/wp.png')" : td.style.backgroundImage = "url('lib/pieces/bp.png')";
-        }
-    });
+    // @todo
 }
 
 /**
  * Clear the whole board of its pieces, removing the background images of all squares.
  */
 export function clearPieces() {
-    for(let i=0; i < 8; i++) {
-        for(let j = 0; j < 8; j++) {
-            let td = document.getElementById(`${j} ${i}`);
-            td.style.backgroundImage = "";
-        }
-    }
+    // @todo
 }
 
 /**
@@ -116,9 +45,7 @@ export function clearPieces() {
  * @param {import("./util").Game} game
  */
 export function renderGameInfo(game) {
-    document.querySelector("#white").textContent = `${game.white}`;
-    document.querySelector("#black").textContent = `${game.black}`;
-    document.querySelector("#result").textContent = `${game.result}`;
+    // @todo
 }
 
 /**
@@ -132,6 +59,8 @@ export function renderGameInfo(game) {
  * @returns {Promise<string>} Portable Game Notation (PGN)
  */
 export function selectGame() {
-    let file = new FileReader() 
-    alert(file)
+    // PAS FINI
+    console.log(game-imput)
+    return(readGameFromPGN(game-input));
+
 }
