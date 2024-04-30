@@ -1,0 +1,666 @@
+{
+  "time": 1713855329,
+  "testResults": [
+    {
+      "group": "Util",
+      "points": 6,
+      "maxPoints": 6,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "validate location > can throw errors on invalid formats",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "validate location > can throw errors on invalid locations > grid with size 10x10",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "validate location > can throw errors on invalid locations > grid with size 14x12",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "location/coordinate conversion > can convert a location to coordinates",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "location/coordinate conversion > can convert coordinates to a location",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "location creation > can generate a random location",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "location creation > can move a location",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    },
+    {
+      "group": "Grid",
+      "points": 10,
+      "maxPoints": 10,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "size of 10x10 > create legend > can create the legend for the x axis",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > create legend > can create the legend for the y axis",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > create tiles > creates tiles as HTML Button elements",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > create tiles > assigns data-tile attribute to tiles",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > create tiles > assigns data-location attribute with correct location to tiles",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > create tiles > creates all tiles while constructing grid and appends them to the DOM",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > create grid > assigns grid properties correctly",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > create grid > sets grid styling correctly",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > can find the correct tile for an uppercase location > A1 should be tile number 1",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > can find the correct tile for an uppercase location > A10 should be tile number 91",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > can find the correct tile for an uppercase location > J1 should be tile number 10",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > can find the correct tile for an uppercase location > J10 should be tile number 100",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > can find the correct tile for an uppercase location > E5 should be tile number 45",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > can find the correct tile for a lowercase location > a1 should be tile number 1",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > can find the correct tile for a lowercase location > a10 should be tile number 91",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > can find the correct tile for a lowercase location > j1 should be tile number 10",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > can find the correct tile for a lowercase location > j10 should be tile number 100",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > can find the correct tile for a lowercase location > e5 should be tile number 45",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > will throw useful errors while trying to find tiles > will throw an exception on invalid formats",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > will throw useful errors while trying to find tiles > will throw an exception when location is out of bounds",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > enable/disable the grid > can disable the grid",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > enable/disable the grid > can enable the grid",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > enable/disable the grid > will keep marked tiles disabled",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > mark tiles > can mark a tile",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > mark tiles > can place a ship",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > mark tiles > can determine if a tile has been marked",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 10x10 > grid info > can determine the number of hits in the grid",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > create legend > can create the legend for the x axis",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > create legend > can create the legend for the y axis",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > create tiles > creates tiles as HTML Button elements",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > create tiles > assigns data-tile attribute to tiles",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > create tiles > assigns data-location attribute with correct location to tiles",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > create tiles > creates all tiles while constructing grid and appends them to the DOM",
+          "points": 0.2,
+          "maxPoints": 0.2,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > create grid > assigns grid properties correctly",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > create grid > sets grid styling correctly",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > can find the correct tile for an uppercase location > A1 should be tile number 1",
+          "points": 0.05,
+          "maxPoints": 0.05,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > can find the correct tile for an uppercase location > A12 should be tile number 155",
+          "points": 0.05,
+          "maxPoints": 0.05,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > can find the correct tile for an uppercase location > N1 should be tile number 14",
+          "points": 0.05,
+          "maxPoints": 0.05,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > can find the correct tile for an uppercase location > N12 should be tile number 168",
+          "points": 0.05,
+          "maxPoints": 0.05,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > can find the correct tile for an uppercase location > G6 should be tile number 77",
+          "points": 0.05,
+          "maxPoints": 0.05,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > can find the correct tile for a lowercase location > a1 should be tile number 1",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > can find the correct tile for a lowercase location > a12 should be tile number 155",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > can find the correct tile for a lowercase location > n1 should be tile number 14",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > can find the correct tile for a lowercase location > n12 should be tile number 168",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > can find the correct tile for a lowercase location > g6 should be tile number 77",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > will throw useful errors while trying to find tiles > will throw an exception on invalid formats",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > will throw useful errors while trying to find tiles > will throw an exception when location is out of bounds",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > enable/disable the grid > can disable the grid",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > enable/disable the grid > can enable the grid",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > enable/disable the grid > will keep marked tiles disabled",
+          "points": 0.2,
+          "maxPoints": 0.2,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > mark tiles > can mark a tile",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > mark tiles > can place a ship",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > mark tiles > can determine if a tile has been marked",
+          "points": 0.1,
+          "maxPoints": 0.1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "size of 14x12 > grid info > can determine the number of hits in the grid",
+          "points": 0.2,
+          "maxPoints": 0.2,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    },
+    {
+      "group": "Player",
+      "points": 2,
+      "maxPoints": 2,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "will assign grid",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "will generate ships",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "will place ships in grid",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can get number of ship tiles",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    },
+    {
+      "group": "AI Player",
+      "points": 2.5,
+      "maxPoints": 2.5,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "will generate a random location for the opponents grid size",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "will re-generate another location if it has been already marked",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "clicks the correct tile after 250ms",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    },
+    {
+      "group": "GameState",
+      "points": 1.25,
+      "maxPoints": 4.5,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "can set players",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can switch players",
+          "points": 0,
+          "maxPoints": 0.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can determine that a player has won",
+          "points": 0,
+          "maxPoints": 0.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can determine that a player has not yet won",
+          "points": 0,
+          "maxPoints": 0.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can open winning dialog with correct phrase",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "on turn > marks the tile in the opponents grid",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "on turn > opens the winning dialog when the player has won",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "on turn > will switch players after a turn",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "on turn > plays AIs turn if player is done",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    }
+  ]
+}

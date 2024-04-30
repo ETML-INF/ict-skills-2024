@@ -1,0 +1,46 @@
+{
+  "time": 1713251836,
+  "testResults": [
+    {
+      "group": "Player",
+      "points": 2,
+      "maxPoints": 2,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "will assign grid",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "will generate ships",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "will place ships in grid",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can get number of ship tiles",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "time": 1713255214,
+  "testResults": [
+    {
+      "group": "GameState",
+      "points": 3,
+      "maxPoints": 4.5,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "can set players",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can switch players",
+          "points": 0.5,
+          "maxPoints": 0.5,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can determine that a player has won",
+          "points": 0,
+          "maxPoints": 0.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can determine that a player has not yet won",
+          "points": 0,
+          "maxPoints": 0.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "can open winning dialog with correct phrase",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "on turn > marks the tile in the opponents grid",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "on turn > opens the winning dialog when the player has won",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "on turn > will switch players after a turn",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "on turn > plays AIs turn if player is done",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "time": 1713248788,
+  "testResults": [
+    {
+      "group": "AI Player",
+      "points": 1,
+      "maxPoints": 2.5,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "will generate a random location for the opponents grid size",
+          "points": 0,
+          "maxPoints": 0.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "will re-generate another location if it has been already marked",
+          "points": 1,
+          "maxPoints": 1,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "clicks the correct tile after 250ms",
+          "points": 0,
+          "maxPoints": 1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    }
+  ]
+}
