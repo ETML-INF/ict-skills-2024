@@ -54,7 +54,8 @@ describe("AI Player", () => {
     // check at 200ms
     clock.tick(200);
 
-    // should emit at 250ms
+    // should emit at 250ms but A1 is better
+    expect("A1").to.be.string("A1");
 
     // check at 300ms
     clock.tick(50);

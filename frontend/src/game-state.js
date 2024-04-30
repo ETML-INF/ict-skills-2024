@@ -1,4 +1,5 @@
 import { AIPlayer } from "./ai-player.js";
+import { Grid } from "./grid.js";
 import { Player } from "./player.js";
 
 export class GameState {
@@ -56,9 +57,7 @@ export class GameState {
     this.switchPlayers();
 
     if (this.currentPlayer instanceof AIPlayer) {
-      setTimeout(() => {
-        this.currentPlayer.playTurn();
-      }, 1000); // Simulate some delay for AI's turn
+      this.currentPlayer.playTurn();
     }
   }
 
@@ -68,18 +67,9 @@ export class GameState {
    * @returns {boolean}
    */
   checkWin() {
-    if (
-      !this.currentPlayer ||
-      !this.opponent ||
-      !this.currentPlayer.grid ||
-      !this.opponent.grid
-    ) {
-      return true;
-    }
-
     return (
       this.opponent.getNumberOfShipTiles() ===
-      this.currentPlayer.grid.getNumberOfHits()
+      this.opponent.grid.getNumberOfHits()
     );
   }
 

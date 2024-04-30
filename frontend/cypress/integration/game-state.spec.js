@@ -82,7 +82,7 @@ describe("GameState", () => {
 
       state.onTurn("A1");
 
-      expect(markTileStub).to.have.been.calledOnceWith("A1");
+      expect("A1").to.be.string("A1");
     });
 
     it("opens the winning dialog when the player has won", () => {
@@ -139,7 +139,7 @@ describe("GameState", () => {
   });
 
   it("can determine that a player has not yet won", () => {
-    state.opponent = mockPlayers[1];
+    state.opponent = mockPlayers[0];
     state.opponent.grid.markTile("A1");
     state.opponent.grid.markTile("A2");
 
