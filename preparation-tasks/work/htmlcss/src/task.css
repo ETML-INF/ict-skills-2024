@@ -1,0 +1,67 @@
+/**
+ * STRING_COMPETITION STRING_YEAR - STRING_TRADE - STRING_TITLE
+ * HTMLCSS - Task 1 - CSS Selectors
+ *
+ * Your task is to expand all CSS Selectors marked with @todo.
+ * You are not allowed to add additional Selectors.
+ */
+
+#task-0 #snowboarder {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-1 .snow.snowboarder {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-2 .snow[data-target] {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-3 .snow.snowboarder[data-target] {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-3 .jump.sport[data-target] {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-4 .snow[data-target] {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-5 .snow.snowboarder[data-target] {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-6 .snow.skier[data-target] {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-7 [data-target] {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-8 .snow[data-target] {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-9 [data-target] {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
+
+#task-10 .snow.surfer[data-target] {
+  text-shadow: 0 0 10px #fff, 0 0 20px #7bedf9, 0 0 40px #7bedf9,
+    0 0 50px #7bedf9, 0 0 60px #7bedf9, 0 0 100px #7bedf9;
+}
