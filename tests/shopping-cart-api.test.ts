@@ -49,7 +49,7 @@ describe("Shopping Cart API", () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ productId, quantity }),
-          signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+          signal: AbortSignal.timeout(10000),
         }
       );
 
