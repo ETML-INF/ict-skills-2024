@@ -1,0 +1,2037 @@
+{
+	"info": {
+		"_postman_id": "29204ed8-45f7-4efc-887a-1357a68e16af",
+		"name": "regio-skills-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create url",
+			"item": [
+				{
+					"name": "create - success - with custom short code",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const customShortCode = utils.randomShortCode();",
+									"pm.variables.set(\"customShortCode\", customShortCode);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test('body', () => {",
+									"    const body = pm.response.json();",
+									"    pm.expect(body.short_code).is.equal(pm.variables.get(\"customShortCode\"), \"short_code incorrect\");",
+									"    pm.expect(body.target_url).is.equal(\"https://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf\", \"target_url incorrect\");",
+									"    const editTokenUniqueness = utils.countUniqueCharacterSequence(body.edit_token);",
+									"    pm.expect(editTokenUniqueness).is.greaterThan(27, \"edit_token is not unique enough\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"short_code\": \"{{customShortCode}}\",\n    \"target_url\": \"https://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - success - with generated code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test('body', () => {",
+									"    const body = pm.response.json();",
+									"    pm.expect(body.target_url).is.equal(\"https://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf\", \"target_url incorrect\");",
+									"",
+									"    const shortCodeUniqueness = utils.countUniqueCharacterSequence(body.short_code);",
+									"    pm.expect(body.short_code.length).is.eq(7, \"generated short_code is not 7 characters long\");",
+									"    pm.expect(shortCodeUniqueness).is.gt(3, \"short_code is not unique enough\");",
+									"    ",
+									"    const editTokenUniqueness = utils.countUniqueCharacterSequence(body.edit_token);",
+									"    pm.expect(editTokenUniqueness).is.gt(27, \"edit_token is not unique enough\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"https://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - success - with generated code and http",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test('body', () => {",
+									"    const body = pm.response.json();",
+									"    pm.expect(body.target_url).is.equal(\"http://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf\", \"target_url incorrect\");",
+									"",
+									"    const shortCodeUniqueness = utils.countUniqueCharacterSequence(body.short_code);",
+									"    pm.expect(body.short_code.length).is.eq(7, \"generated short_code is not 7 characters long\");",
+									"    pm.expect(shortCodeUniqueness).is.gt(3, \"short_code is not unique enough\");",
+									"    ",
+									"    const editTokenUniqueness = utils.countUniqueCharacterSequence(body.edit_token);",
+									"    pm.expect(editTokenUniqueness).is.gt(27, \"edit_token is not unique enough\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"http://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - fail - code too short",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            short_code: {",
+									"                message: \"Short Code must be at least 4 characters long.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"short_code\": \"aaa\",\n    \"target_url\": \"https://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - fail - code too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            short_code: {",
+									"                message: \"Short Code must be at most 50 characters long.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"short_code\": \"aaaa_aaaa_aaaa_aaaa_aaaa_aaaa_aaaa_aaaa_aaaa_aaaa_a\",\n    \"target_url\": \"https://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - fail - code with invalid characters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            short_code: {",
+									"                message: \"Short Code contains invalid characters.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"short_code\": \"aaaa$\",\n    \"target_url\": \"https://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - fail - code already existing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            short_code: {",
+									"                message: \"Short Code is already in use.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"short_code\": \"ictranks2022\",\n    \"target_url\": \"https://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - fail - target url invalid - missing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is required.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - fail - target url invalid - too long",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL must be at most 300 characters long.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"https://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf?foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - fail - target url invalid - wrong scheme",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is not a valid URL.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"ftp://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - fail - target url invalid - dot missing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is not a valid URL.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"http://localhost\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - fail - target url invalid - dot not surrounded (1)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is not a valid URL.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"https://.localhost/\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - fail - target url invalid - dot not surrounded (2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is not a valid URL.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"https://localhost./\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create - fail - target url invalid - dot not surrounded (3)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is not a valid URL.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"https://localhost..test\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "redirect",
+			"item": [
+				{
+					"name": "redirect - success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(302);",
+									"});",
+									"pm.test('headers', () => {",
+									"    const expectedRedirectUrl = 'https://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf';",
+									"    pm.expect(pm.response.headers.get('Location')).is.equal(expectedRedirectUrl, 'Location header not as expected');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,de;q=0.8",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/s/ictranks2022",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"s",
+								"ictranks2022"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redirect - fail - code does not exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test('headers', () => {",
+									"  pm.expect(pm.response.headers.get('Location')).is.equal(undefined);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/s/non-existing-code",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"s",
+								"non-existing-code"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "update url",
+			"item": [
+				{
+					"name": "edit - success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('body', () => {",
+									"    const body = pm.response.json();",
+									"    pm.expect(body.short_code).is.equal(\"put-test\", \"short_code incorrect\");",
+									"    pm.expect(body.edit_token).is.equal(\"443b8432-abbb-44bf-9c9e-23f2d13c2f7f\", \"edit_token incorrect\");",
+									"    pm.expect(body.target_url).is.equal(\"https://www.example.org/\" + pm.variables.get(\"testPath\"), \"target_url incorrect\");",
+									"});",
+									"",
+									"pm.sendRequest(pm.variables.replaceIn(\"{{BASE_URL}}/s/put-test\"), (error, response) => {",
+									"    pm.test('updated', () => {",
+									"        if (error) {",
+									"            pm.expect.fail(\"Could not get updated URL\", error);",
+									"            return;",
+									"        }",
+									"        ",
+									"        // every https://www.example.org/whatever response contains this snippet (requires Internet connection):",
+									"        pm.expect(response.text()).to.contain(\"<h1>Example Domain</h1>\");",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.variables.set(\"testPath\", pm.variables.replaceIn('{{$randomBsBuzz}}'));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "443b8432-abbb-44bf-9c9e-23f2d13c2f7f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"https://www.example.org/{{testPath}}\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/put-test",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"put-test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - fail - short code does not exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        \"error\": \"Short code does not exist.\"",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "443b8432-abbb-44bf-9c9e-23f2d13c2f7f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/nonexistingcode",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"nonexistingcode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - fail - edit token invalid - missing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        \"error\": \"Edit token does not match. Please specify the header X-EDIT-TOKEN.\"",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/put-test",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"put-test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - fail - edit token invalid - incorrect",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        \"error\": \"Edit token does not match. Please specify the header X-EDIT-TOKEN.\"",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "foo-bar",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/put-test",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"put-test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - fail - target url invalid - missing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is required.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "443b8432-abbb-44bf-9c9e-23f2d13c2f7f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/put-test",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"put-test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - fail - target url invalid - too long",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL must be at most 300 characters long.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "443b8432-abbb-44bf-9c9e-23f2d13c2f7f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"https://www.ict-berufsbildung.ch/resources/SwissSkills_Bern_2022_Ranglisten_ICTskills.pdf?foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar&foo=bar\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/put-test",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"put-test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - fail - target url invalid - wrong scheme",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is not a valid URL.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.variables.set(\"testPath\", pm.variables.replaceIn('{{$randomBsBuzz}}'));",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "443b8432-abbb-44bf-9c9e-23f2d13c2f7f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"ftp://www.example.org/{{testPath}}\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/put-test",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"put-test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - fail - target url invalid - dot missing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is not a valid URL.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "443b8432-abbb-44bf-9c9e-23f2d13c2f7f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"http://localhost\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/put-test",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"put-test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - fail - target url invalid - dot not surrounded (1)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is not a valid URL.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "443b8432-abbb-44bf-9c9e-23f2d13c2f7f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"https://.localhost/\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/put-test",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"put-test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - fail - target url invalid - dot not surrounded (2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is not a valid URL.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "443b8432-abbb-44bf-9c9e-23f2d13c2f7f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"https://localhost./\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/put-test",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"put-test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - fail - target url invalid - dot not surrounded (3)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        error: \"Request body is not valid.\",",
+									"        invalid: true,",
+									"        violations: {",
+									"            target_url: {",
+									"                message: \"Target URL is not a valid URL.\"",
+									"            }",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "443b8432-abbb-44bf-9c9e-23f2d13c2f7f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"target_url\": \"https://localhost..test\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/put-test",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"put-test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "statistics",
+			"item": [
+				{
+					"name": "statistics - success - existing",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();",
+									"",
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('body - total', () => {",
+									"    pm.expect(body.short_code).is.equal(\"stats-test\", \"short_code incorrect\");",
+									"    pm.expect(body.target_url).is.equal(\"https://www.example.org/test\", \"target_url incorrect\");",
+									"    pm.expect(body.count).is.equal(22, \"count incorrect\");",
+									"});",
+									"pm.test('body - correct items', () => {",
+									"    pm.expect(body).to.have.property(\"timeseries\");",
+									"    pm.expect(body.timeseries.resolution).is.equal(\"1h\", \"timeseries.resolution incorrect\");",
+									"    ",
+									"    pm.expect(body.timeseries.items).to.be.an(\"array\", \"body.timeseries.items not an array\");",
+									"    pm.expect(body.timeseries.items.length).is.equal(2, \"timeseries.items length incorrect\");",
+									"",
+									"    pm.expect(body.timeseries.items[0].timestamp).is.equal(\"2023-03-18T12:00:00.000Z\", \"body.timeseries.items[0].timestamp incorrect\");",
+									"    pm.expect(body.timeseries.items[0].count).is.equal(15, \"body.timeseries.items[0].count incorrect\");",
+									"    pm.expect(body.timeseries.items[1].timestamp).is.equal(\"2023-03-18T13:00:00.000Z\", \"body.timeseries.items[1].timestamp incorrect\");",
+									"    pm.expect(body.timeseries.items[1].count).is.equal(7, \"body.timeseries.items[1].count incorrect\");",
+									"});",
+									"pm.test('body - correct metrics', () => {",
+									"    pm.expect(body.timeseries.items[0].metrics).to.be.an(\"array\", \"body.timeseries.items[0].metrics incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics.length).is.equal(2, \"body.timeseries.items[0].metrics.length incorrect\");",
+									"",
+									"    pm.expect(body.timeseries.items[0].metrics[0].count).is.equal(10, \"body.timeseries.items[0].metrics[0].count incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions).to.be.an(\"array\", \"body.timeseries.items[0].metrics[0].dimensions incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions.length).is.equal(3, \"body.timeseries.items[0].metrics[0].dimensions.length incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[0].key).is.equal(\"browser\", \"body.timeseries.items[0].metrics[0].dimensions[0].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[0].value).is.equal(\"chrome\", \"body.timeseries.items[0].metrics[0].dimensions[0].value incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[1].key).is.equal(\"language\", \"body.timeseries.items[0].metrics[0].dimensions[1].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[1].value).is.equal(\"en\", \"body.timeseries.items[0].metrics[0].dimensions[1].value incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[2].key).is.equal(\"referrer\", \"body.timeseries.items[0].metrics[0].dimensions[2].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[2].value).is.equal(\"https://www.example.org\", \"body.timeseries.items[0].metrics[0].dimensions[2].value incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].count).is.equal(5, \"body.timeseries.items[0].metrics[1].count incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions).to.be.an(\"array\", \"body.timeseries.items[0].metrics[1].dimensions incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions.length).is.equal(3, \"body.timeseries.items[0].metrics[1].dimensions.length incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[0].key).is.equal(\"browser\", \"body.timeseries.items[0].metrics[1].dimensions[0].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[0].value).is.equal(\"chrome\", \"body.timeseries.items[0].metrics[1].dimensions[0].value incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[1].key).is.equal(\"language\", \"body.timeseries.items[0].metrics[1].dimensions[1].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[1].value).is.equal(\"de\", \"body.timeseries.items[0].metrics[1].dimensions[1].value incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[2].key).is.equal(\"referrer\", \"body.timeseries.items[0].metrics[1].dimensions[2].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[2].value).is.equal(\"https://www.example.org\", \"body.timeseries.items[0].metrics[1].dimensions[2].value incorrect\");",
+									"    ",
+									"    pm.expect(body.timeseries.items[1].metrics).to.be.an(\"array\", \"body.timeseries.items[1].metrics incorrect\");",
+									"    pm.expect(body.timeseries.items[1].metrics.length).is.equal(1, \"body.timeseries.items[1].metrics.length incorrect\");",
+									"    pm.expect(body.timeseries.items[1].metrics[0].count).is.equal(7, \"body.timeseries.items[1].metrics[0].count incorrect\");",
+									"    pm.expect(body.timeseries.items[1].metrics[0].dimensions).to.be.an(\"array\", \"body.timeseries.items[1].metrics[0].dimensions incorrect\");",
+									"    pm.expect(body.timeseries.items[1].metrics[0].dimensions.length).is.equal(3, \"body.timeseries.items[1].metrics[0].dimensions.length incorrect\");",
+									"    pm.expect(body.timeseries.items[1].metrics[0].dimensions[0].key).is.equal(\"browser\", \"body.timeseries.items[1].metrics[0].dimensions[0].key incorrect\");",
+									"    pm.expect(body.timeseries.items[1].metrics[0].dimensions[0].value).is.equal(\"chrome\", \"body.timeseries.items[1].metrics[0].dimensions[0].value incorrect\");",
+									"    pm.expect(body.timeseries.items[1].metrics[0].dimensions[1].key).is.equal(\"language\", \"body.timeseries.items[1].metrics[0].dimensions[1].key incorrect\");",
+									"    pm.expect(body.timeseries.items[1].metrics[0].dimensions[1].value).is.equal(\"de\", \"body.timeseries.items[1].metrics[0].dimensions[1].value incorrect\");",
+									"    pm.expect(body.timeseries.items[1].metrics[0].dimensions[2].key).is.equal(\"referrer\", \"body.timeseries.items[1].metrics[0].dimensions[2].key incorrect\");",
+									"    pm.expect(body.timeseries.items[1].metrics[0].dimensions[2].value).is.equal(\"https://www.example.org\", \"body.timeseries.items[1].metrics[0].dimensions[2].value incorrect\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "3d84d360-4087-4bdf-b74f-78e85f8eb51b",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/stats-test/statistics",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"stats-test",
+								"statistics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "statistics - success - fresh clicks",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const customShortCode = utils.randomShortCode();",
+									"pm.variables.set(\"customShortCode\", customShortCode);",
+									"",
+									"// create new shortened URL",
+									"pm.sendRequest({",
+									"    url: pm.variables.replaceIn(\"{{BASE_URL}}/api/url\"),",
+									"    method: 'POST',",
+									"    header: {'Content-Type': 'application/json'},",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({",
+									"            short_code: customShortCode,",
+									"            target_url: \"https://www.example.org/testtest\"",
+									"        })",
+									"    }",
+									"}, (error, response) => {",
+									"    // test that it was succsesfully created",
+									"    pm.test('create url', () => {",
+									"        if (error || response.code !== 201) {",
+									"            pm.expect.fail('Could not create short url', error);",
+									"            return;",
+									"        }",
+									"        pm.variables.set('editToken', response.json().edit_token);",
+									"    });",
+									"",
+									"    pm.test('generate clicks', () => {",
+									"        for (let i = 0; i < 5; i++) {",
+									"            // calls with French and Firefox",
+									"            pm.sendRequest({",
+									"                url: pm.variables.replaceIn(\"{{BASE_URL}}/s/{{customShortCode}}\"),",
+									"                header: {",
+									"                    'accept-language': 'fr',",
+									"                    'user-agent': 'firefox',",
+									"                    'referrer': 'https://www.example.org'",
+									"                }",
+									"            })",
+									"        }",
+									"",
+									"        for (let i = 0; i < 2; i++) {",
+									"            // calls with German and Safari",
+									"            pm.sendRequest({",
+									"                url: pm.variables.replaceIn(\"{{BASE_URL}}/s/{{customShortCode}}\"),",
+									"                header: {",
+									"                    'accept-language': 'de',",
+									"                    'user-agent': 'safari',",
+									"                    'referrer': 'https://www.example.org'",
+									"                }",
+									"            })",
+									"        }",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();",
+									"const currentHourTimestamp = new Date();",
+									"currentHourTimestamp.setMinutes(0, 0, 0);",
+									"currentHourTimestamp.setHours(currentHourTimestamp.getHours() + 1);",
+									"const isoTimestamp = currentHourTimestamp.toISOString();",
+									"",
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('body - total', () => {",
+									"    pm.expect(body.short_code).is.equal(pm.variables.get('customShortCode'), \"short_code incorrect\");",
+									"    pm.expect(body.target_url).is.equal(\"https://www.example.org/testtest\", \"target_url incorrect\");",
+									"    pm.expect(body.count).is.equal(7, \"count incorrect\");",
+									"});",
+									"pm.test('body - correct items', () => {",
+									"    pm.expect(body).to.have.property(\"timeseries\");",
+									"    pm.expect(body.timeseries.resolution).is.equal(\"1h\", \"timeseries.resolution incorrect\");",
+									"    ",
+									"    pm.expect(body.timeseries.items).to.be.an(\"array\", \"body.timeseries.items not an array\");",
+									"    pm.expect(body.timeseries.items.length).is.equal(1, \"timeseries.items length incorrect\");",
+									"",
+									"    pm.expect(body.timeseries.items[0].timestamp).is.equal(isoTimestamp, \"body.timeseries.items[0].timestamp incorrect\");",
+									"    pm.expect(body.timeseries.items[0].count).is.equal(7, \"body.timeseries.items[0].count incorrect\");",
+									"});",
+									"pm.test('body - correct metrics', () => {",
+									"    pm.expect(body.timeseries.items[0].metrics).to.be.an(\"array\", \"body.timeseries.items[0].metrics incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics.length).is.equal(2, \"body.timeseries.items[0].metrics.length incorrect\");",
+									"",
+									"    pm.expect(body.timeseries.items[0].metrics[0].count).is.equal(5, \"body.timeseries.items[0].metrics[0].count incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions).to.be.an(\"array\", \"body.timeseries.items[0].metrics[0].dimensions incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions.length).is.equal(3, \"body.timeseries.items[0].metrics[0].dimensions.length incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[0].key).is.equal(\"browser\", \"body.timeseries.items[0].metrics[0].dimensions[0].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[0].value).is.equal(\"firefox\", \"body.timeseries.items[0].metrics[0].dimensions[0].value incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[1].key).is.equal(\"language\", \"body.timeseries.items[0].metrics[0].dimensions[1].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[1].value).is.equal(\"fr\", \"body.timeseries.items[0].metrics[0].dimensions[1].value incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[2].key).is.equal(\"referrer\", \"body.timeseries.items[0].metrics[0].dimensions[2].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[0].dimensions[2].value).is.equal(\"https://www.example.org\", \"body.timeseries.items[0].metrics[0].dimensions[2].value incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].count).is.equal(2, \"body.timeseries.items[0].metrics[1].count incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions).to.be.an(\"array\", \"body.timeseries.items[0].metrics[1].dimensions incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions.length).is.equal(3, \"body.timeseries.items[0].metrics[1].dimensions.length incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[0].key).is.equal(\"browser\", \"body.timeseries.items[0].metrics[1].dimensions[0].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[0].value).is.equal(\"safari\", \"body.timeseries.items[0].metrics[1].dimensions[0].value incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[1].key).is.equal(\"language\", \"body.timeseries.items[0].metrics[1].dimensions[1].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[1].value).is.equal(\"de\", \"body.timeseries.items[0].metrics[1].dimensions[1].value incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[2].key).is.equal(\"referrer\", \"body.timeseries.items[0].metrics[1].dimensions[2].key incorrect\");",
+									"    pm.expect(body.timeseries.items[0].metrics[1].dimensions[2].value).is.equal(\"https://www.example.org\", \"body.timeseries.items[0].metrics[1].dimensions[2].value incorrect\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "{{editToken}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/{{customShortCode}}/statistics",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"{{customShortCode}}",
+								"statistics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "statistics - fail - short code does not exist",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        \"error\": \"Short code does not exist.\"",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "3d84d360-4087-4bdf-b74f-78e85f8eb51b",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/nonexistingcode/statistics",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"nonexistingcode",
+								"statistics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "statistics - fail - edit token invalid - missing",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        \"error\": \"Edit token does not match. Please specify the header X-EDIT-TOKEN.\"",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/stats-test/statistics",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"stats-test",
+								"statistics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "statistics - fail - edit token invalid - incorrect",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status', () => {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test('body', () => {",
+									"    pm.expect(pm.response.json()).is.eql({",
+									"        \"error\": \"Edit token does not match. Please specify the header X-EDIT-TOKEN.\"",
+									"    });",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-EDIT-TOKEN",
+								"value": "foo-bar",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/url/stats-test/statistics",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"url",
+								"stats-test",
+								"statistics"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"utils = {",
+					"",
+					"    /**",
+					"     * Generates a random 20 character long code.",
+					"     */",
+					"    randomShortCode: () => {",
+					"        const randomChar = () => String.fromCharCode(97 + Math.round(Math.random() * 25));",
+					"        const repeat = (n, fn) => Array(n).fill().map(fn);",
+					"        return repeat(20, randomChar).join('');",
+					"    },",
+					"",
+					"    /**",
+					"     * Counts changes in characters in a string sequence to assess how unique it is.",
+					"     */",
+					"    countUniqueCharacterSequence: (string) => {",
+					"        if (!string) {",
+					"            return 0;",
+					"        }",
+					"        let count = 1;",
+					"        const chars = String(string).split(\"\");",
+					"        for (let c = 1; c < chars.length; c++) {",
+					"            if (chars[c] !== chars[c - 1]) {",
+					"                count++;",
+					"            }",
+					"        }",
+					"        return count;",
+					"    }",
+					"}",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

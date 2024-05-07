@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=https://schema.skills17.ch/task-config/v3/config.schema.json
+id: backend
+metadata:
+  name: Short URL Service API
+serve:
+  bind: localhost
+  port: 4000
+source:
+  - src-node/**
+  - src-php/**
+localHistory: true
+groups:
+  - match: regio-skills-backend(-extra)? > create url > create - success .+
+    displayName: Create URL - success
+    defaultPoints: 0.25
+    tests:
+      - match: create - success - with custom short code > body
+        points: 1.5
+      - match: create - success - with generated code > body
+        points: 1.5
+      - match: create - success - with generated code and http > body
+        points: 0.5
+  - match: regio-skills-backend(-extra)? > create url > create - fail .+
+    displayName: Create URL - fail
+    defaultPoints: 0.25
+    tests:
+      - match: .* > status$
+        points: 0.1
+      - match: .* target url .*
+        points: 0.2
+  - match: regio-skills-backend(-extra)? > redirect > .*
+    displayName: redirect
+    defaultPoints: 0.25
+    tests:
+      - match: redirect - success > headers
+        points: 1.5
+  - match: regio-skills-backend(-extra)? > update url > edit - success .*
+    displayName: Update URL - success
+    defaultPoints: 0.25
+    tests:
+      - match: edit - success > updated
+        points: 2
+  - match: regio-skills-backend(-extra)? > update url > edit - fail .*
+    displayName: Update URL - fail
+    defaultPoints: 0.25
+    tests:
+      - match: .* > status$
+        points: 0.1
+      - match: .* target url .*
+        points: 0.2
+      - match: .* edit token invalid - incorrect > body$
+        points: 0.2
+  - match: regio-skills-backend(-extra)? > statistics > statistics - success .*
+    displayName: Statistics - success
+    defaultPoints: 0.25
+    tests:
+      - match: .* body .*
+        points: 0.75
+  - match: regio-skills-backend(-extra)? > statistics > statistics - fail .*
+    displayName: Statistics - fail
+    defaultPoints: 0.2
+    tests:
+      - match: .* > status$
+        points: 0.1

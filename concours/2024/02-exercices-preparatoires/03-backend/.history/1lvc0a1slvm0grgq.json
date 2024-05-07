@@ -1,0 +1,572 @@
+{
+  "time": 1714458736,
+  "testResults": [
+    {
+      "group": "Create URL - success",
+      "points": 0,
+      "maxPoints": 4.25,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "create - success - with custom short code > status",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - success - with custom short code > body",
+          "points": 0,
+          "maxPoints": 1.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - success - with generated code > status",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - success - with generated code > body",
+          "points": 0,
+          "maxPoints": 1.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - success - with generated code and http > status",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - success - with generated code and http > body",
+          "points": 0,
+          "maxPoints": 0.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    },
+    {
+      "group": "Create URL - fail",
+      "points": 0,
+      "maxPoints": 3.5,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "create - fail - code too short > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - code too short > body",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - code too long > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - code too long > body",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - code with invalid characters > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - code with invalid characters > body",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - code already existing > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - code already existing > body",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - missing > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - missing > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - too long > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - too long > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - wrong scheme > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - wrong scheme > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - dot missing > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - dot missing > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - dot not surrounded (1) > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - dot not surrounded (1) > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - dot not surrounded (2) > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - dot not surrounded (2) > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - dot not surrounded (3) > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "create - fail - target url invalid - dot not surrounded (3) > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    },
+    {
+      "group": "redirect",
+      "points": 0.25,
+      "maxPoints": 2.25,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "redirect - success > status",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "redirect - success > headers",
+          "points": 0,
+          "maxPoints": 1.5,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "redirect - fail - code does not exist > status",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "redirect - fail - code does not exist > headers",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    },
+    {
+      "group": "Update URL - success",
+      "points": 0,
+      "maxPoints": 2.5,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "edit - success > status",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - success > body",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - success > updated",
+          "points": 0,
+          "maxPoints": 2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    },
+    {
+      "group": "Update URL - fail",
+      "points": 0,
+      "maxPoints": 3.1,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "edit - fail - short code does not exist > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - short code does not exist > body",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - edit token invalid - missing > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - edit token invalid - missing > body",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - edit token invalid - incorrect > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - edit token invalid - incorrect > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - missing > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - missing > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - too long > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - too long > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - wrong scheme > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - wrong scheme > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - dot missing > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - dot missing > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - dot not surrounded (1) > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - dot not surrounded (1) > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - dot not surrounded (2) > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - dot not surrounded (2) > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - dot not surrounded (3) > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "edit - fail - target url invalid - dot not surrounded (3) > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    },
+    {
+      "group": "Statistics - success",
+      "points": 0.25,
+      "maxPoints": 0.5,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "statistics - success - fresh clicks > create url",
+          "points": 0,
+          "maxPoints": 0.25,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "statistics - success - fresh clicks > generate clicks",
+          "points": 0.25,
+          "maxPoints": 0.25,
+          "successful": true,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    },
+    {
+      "group": "Statistics - fail",
+      "points": 0,
+      "maxPoints": 0.9,
+      "strategy": "add",
+      "manualCheck": false,
+      "tests": [
+        {
+          "name": "statistics - fail - short code does not exist > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "statistics - fail - short code does not exist > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "statistics - fail - edit token invalid - missing > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "statistics - fail - edit token invalid - missing > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "statistics - fail - edit token invalid - incorrect > status",
+          "points": 0,
+          "maxPoints": 0.1,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        },
+        {
+          "name": "statistics - fail - edit token invalid - incorrect > body",
+          "points": 0,
+          "maxPoints": 0.2,
+          "successful": false,
+          "required": false,
+          "manualCheck": false
+        }
+      ]
+    }
+  ]
+}
