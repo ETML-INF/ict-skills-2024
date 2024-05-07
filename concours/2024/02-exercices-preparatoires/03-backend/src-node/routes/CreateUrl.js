@@ -4,27 +4,6 @@ import { handleAsync, sendNotFound } from "../util.js";
 import { executeQuery } from "../db.js";
 
 const exampleUrl = Router();
-const exampleRouter = Router();
-
-// Example route that can be deleted or adapted.
-// This can be called via GET http://localhost:4000/api/example/blubb
-/*
-exampleRouter.get(
-  "/:var1",
-  handleAsync(async (req, res, next) => {
-    const results = await executeQuery(
-      "SELECT 1 as id, 'test' as value WHERE 'example_param' = ?",
-      ["example_param"]
-    );
-    res.send({
-      foo: "bar",
-      pathParam: req.params["var1"],
-      uuid: randomUUID(),
-      results,
-    });
-  })
-);
-*/
 
 exampleUrl.use('/', (req, res, next) => {
   const { target_url, short_code } = req.body;
@@ -157,22 +136,4 @@ function validateShortCode(code) {
   return errors;
 }
 
-export { exampleRouter, exampleUrl };
-
-/*
-exampleRouter.get(
-  "/:var1",
-  handleAsync(async (req, res, next) => {
-    const results = await executeQuery(
-      "SELECT 1 as id, 'test' as value WHERE 'example_param' = ?",
-      ["example_param"]
-    );
-    res.send({
-      foo: "bar",
-      pathParam: req.params["var1"],
-      uuid: randomUUID(),
-      results,
-    });
-  })
-);
-*/
+export { exampleUrl };

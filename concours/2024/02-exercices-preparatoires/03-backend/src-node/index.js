@@ -5,7 +5,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import { logger } from "./logger.js";
 import { sendNotFound } from "./util.js";
-import { exampleRouter, exampleUrl } from "./routes/example.js";
+import { exampleUrl } from "./routes/CreateUrl.js";
+import { exampleRouter } from "./routes/Redirect.js";
 
 const app = express();
 
