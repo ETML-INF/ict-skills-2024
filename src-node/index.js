@@ -18,7 +18,7 @@ app.use(logger);
 app.use("/api/carts", cartRouter);
 
 // map every other route and return 404
-app.use((req, res) => sendNotFound(req, res,));
+app.use((req, res, next) => sendNotFound(req, res, next));
 
 // add error handler for uncaught errors
 app.use("/*", (err, req, res, _next) => {
