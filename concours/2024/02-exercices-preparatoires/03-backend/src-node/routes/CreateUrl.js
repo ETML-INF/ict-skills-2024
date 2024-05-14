@@ -3,9 +3,9 @@ import { randomUUID, randomBytes } from "crypto";
 import { handleAsync, sendNotFound } from "../util.js";
 import { executeQuery } from "../db.js";
 
-const exampleUrl = Router();
-
-exampleUrl.use('/', (req, res, next) => {
+const RouteCreate = Router();
+/*
+RouteCreate.use('/', (req, res, next) => {
   const { target_url, short_code } = req.body;
   let code = short_code;
   const violations = {};
@@ -45,7 +45,7 @@ exampleUrl.use('/', (req, res, next) => {
   next();
 });
 
-exampleUrl.post('/', handleAsync(async (req, res) => {
+RouteCreate.post('/', handleAsync(async (req, res) => {
   const { target_url, short_code } = req.body;
 
   // Check if the target_url already exists
@@ -87,7 +87,7 @@ exampleUrl.post('/', handleAsync(async (req, res) => {
   });
 }));
 
-export default exampleUrl;
+export default RouteCreate;
 
 // Function to generate a random short code
 function generateRandomShortCode() {
@@ -135,5 +135,39 @@ function validateShortCode(code) {
   }
   return errors;
 }
+*/
 
-export { exampleUrl };
+
+  function generateRandomShortCode() {
+    return randomBytes(4).toString('hex').slice(0, 12);
+}
+
+RouteCreate.put('/', handleAsync(async (req, res) => {
+    const { target_url, short_code } = req.body;
+
+    // Ensure the provided short_code is used in the query
+    const selectSql = 'SELECT * FROM url WHERE short_code = ?';
+    const results = await executeQuery(selectSql, [short_code]);
+
+    if (results.length === 0) {
+        // If the short_code does not exist, return an error
+        return res.status(404).send({ message: "Short code not found." });
+    }
+
+    // Generate a new unique edit_token
+    const newEditToken = randomUUID();
+
+    // Update the URL and edit_token for the existing short_code
+    const updateSql = 'UPDATE url SET target_url = ?, edit_token = ? WHERE short_code = ?';
+    await executeQuery(updateSql, [target_url, newEditToken, short_code]);
+
+    // Respond with the updated details
+    res.status(200).send({
+        short_code: short_code,
+        edit_token: newEditToken,
+        target_url: target_url
+    });
+}));
+
+
+export { RouteCreate };

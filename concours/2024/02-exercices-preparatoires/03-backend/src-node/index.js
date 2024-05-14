@@ -5,9 +5,9 @@ import express from "express";
 import bodyParser from "body-parser";
 import { logger } from "./logger.js";
 import { sendNotFound } from "./util.js";
-import { exampleUrl } from "./routes/CreateUrl.js";
-import { exampleRouter } from "./routes/Redirect.js";
-
+import { RouteCreate } from "./routes/CreateUrl.js";
+import { RouteRedirect } from "./routes/Redirect.js";
+import { RouteUpdate } from "./routes/Update.js";
 const app = express();
 
 // Using bodyParser to parse JSON bodies into JS objects.
@@ -17,9 +17,11 @@ app.use(bodyParser.json());
 app.use(logger);
 
 // activate sub-routes
-app.use("/s", exampleRouter);
+app.use("/s", RouteRedirect);
 
-app.use('/api/url', exampleUrl);
+app.use('/api/url', RouteCreate);
+
+app.use("/api/url", RouteUpdate);
 
 // map every other route and return 404
 app.use("/*", (req, res) => sendNotFound(req, res));
