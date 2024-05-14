@@ -110,10 +110,10 @@ describe('UI', () => {
 
     it('can upload a PGN', () => {
         cy.showDialog();
-        // PAS FINI NON PLUS WADDAHELL ?? ? ?? ?
+        // selectgame est une promise qui return le "game"
         cy.window().then((win) => {
             win.chess.selectGame().then((game) => {
-                console.log(game);
+                console.log(game + "bl bl");
                 expect(game.replace(/\s/g, '')).to.equal(
                     GAME_OF_THE_CENTURY.replace(/\s/g, '')
                 );
