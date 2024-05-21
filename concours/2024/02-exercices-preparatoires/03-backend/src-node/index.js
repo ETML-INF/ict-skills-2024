@@ -21,7 +21,7 @@ app.use("/s", RouteRedirect);
 
 app.use('/api/url', RouteCreate);
 
-app.use("/api/url", RouteUpdate);
+app.use("/api/url/put-test", RouteUpdate);
 
 // map every other route and return 404
 app.use("/*", (req, res) => sendNotFound(req, res));
