@@ -24,7 +24,7 @@ app.use('/api/url', RouteCreate);
 
 app.use("/api/url/put-test", RouteUpdate);
 
-app.use("/api/url/stats-test", RouteStadistics);
+app.use('/api/url', RouteStadistics);
 
 // map every other route and return 404
 app.use("/*", (req, res) => sendNotFound(req, res));

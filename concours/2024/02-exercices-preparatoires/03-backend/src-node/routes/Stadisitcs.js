@@ -2,9 +2,9 @@ import express from 'express';
 import { handleAsync } from '../util.js';
 import { executeQuery } from '../db.js';
 
-const RouteStadistics = Router();
+const RouteStadistics = express.Router();
 
-RouteStadistics.get('/:shortCode', handleAsync(async (req, res) => {
+RouteStadistics.get('/:shortCode/statistics', handleAsync(async (req, res) => {
     const { shortCode } = req.params;
     const selectSql = 'SELECT target_url FROM url WHERE short_code = ?';
     const results = await executeQuery(selectSql, [shortCode]);
