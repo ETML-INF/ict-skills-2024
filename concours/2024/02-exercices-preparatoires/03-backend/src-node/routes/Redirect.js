@@ -3,7 +3,7 @@ import { handleAsync } from "../util.js";
 import { executeQuery } from "../db.js";
 
 const RouteRedirect = Router();
-/*
+
 RouteRedirect.get('/:shortCode', handleAsync(async (req, res) => {
     const { shortCode } = req.params;
     const selectSql = 'SELECT target_url FROM url WHERE short_code = ?';
@@ -15,6 +15,6 @@ RouteRedirect.get('/:shortCode', handleAsync(async (req, res) => {
         res.status(404).send({ message: "URL not found" });
     }
 }));
-*/
+
 
 export { RouteRedirect }

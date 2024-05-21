@@ -8,6 +8,7 @@ import { sendNotFound } from "./util.js";
 import { RouteCreate } from "./routes/CreateUrl.js";
 import { RouteRedirect } from "./routes/Redirect.js";
 import { RouteUpdate } from "./routes/Update.js";
+import { RouteStadistics } from "./routes/Stadisitcs.js";
 const app = express();
 
 // Using bodyParser to parse JSON bodies into JS objects.
@@ -22,6 +23,8 @@ app.use("/s", RouteRedirect);
 app.use('/api/url', RouteCreate);
 
 app.use("/api/url/put-test", RouteUpdate);
+
+app.use("/api/url/stats-test", RouteStadistics);
 
 // map every other route and return 404
 app.use("/*", (req, res) => sendNotFound(req, res));
