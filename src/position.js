@@ -7,6 +7,7 @@
  * You are not allowed to change the signature of or delete existing methods.
  */
 
+// import of pieces classes and their functions.
 import {
     Bishop,
     King,
@@ -22,6 +23,7 @@ import {
     canRookMove,
 } from './pieces.js';
 
+// pieces instantiation, starting positions hard-coded as they wont change.
 export const STARTING_POSITION = [
     new Rook('a1', 'w'),
     new Knight('b1', 'w'),
@@ -70,7 +72,7 @@ export const STARTING_POSITION = [
  */
 export function movePiece(piece, square, position) {
     position.map((pos) => {
-        if(pos.notation == piece.notation) {
+        if (pos.notation == piece.notation) {
             piece.square = square;
         }
     });

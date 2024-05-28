@@ -7,6 +7,7 @@
  * You are not allowed to change the signature of or delete existing methods.
  */
 
+// Declaration of the Piece class.
 export class Piece {
     constructor(square, color, notation) {
         /** @type {import("./util").Square} */
@@ -20,6 +21,7 @@ export class Piece {
     }
 }
 
+// Declaration of 6 child classes of Piece, one for every different kind of piece.
 export class Pawn extends Piece {
     constructor(square, color) {
         super(square, color, 'P');
@@ -64,15 +66,14 @@ export class King extends Piece {
  * @return boolean
  */
 export function canKingMove(move, piece, position) {
-    position.forEach((pos) => {
-        if(pos.square == move.targetSquare) {
-            if(pos.color == piece.color) {
-                return false
-            } else {
-                return true
-            }
-        }
-    })
+    let movablePos = [];
+
+    movablePos.push(piece.square + 1);
+    if (isSamecolor(move, piece, position) && move.targetSquare == movablePos) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -128,11 +129,38 @@ export function canBishopMove(move, piece, position) {
  */
 export function canPawnMove(move, piece, position) {
     position.forEach((pos) => {
-        let square = pos.square;    
-        let rank = parseInt(square[1])
-        if(rank - parseInt(move.targetSquare[1]) == 1 || rank - parseInt(move.targetSquare[1]) == 2) {
-            return true
+        let square = pos.square;
+        let rank = parseInt(square[1]);
+        if (
+            rank - parseInt(move.targetSquare[1]) == 1 ||
+            rank - parseInt(move.targetSquare[1]) == 2
+        ) {
+            return true;
         }
     });
-    return false
+    return false;
+}
+
+function isSamecolor(move, piece, position) {
+    position.forEach((pos) => {
+        if (pos.square == move.targetSquare) {
+            if (pos.color == piece.color) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    });
+}
+
+function isSquareAttacked(move, position) {
+    position.forEach((pos) => {
+        if (pos.square == move.targetSquare) {
+            if (pos.color == piece.color) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    });
 }
