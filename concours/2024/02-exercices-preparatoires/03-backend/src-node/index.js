@@ -1,6 +1,3 @@
-//
-// This is the main script.
-//
 import express from "express";
 import bodyParser from "body-parser";
 import { logger } from "./logger.js";
@@ -8,7 +5,8 @@ import { sendNotFound } from "./util.js";
 import { RouteCreate } from "./routes/CreateUrl.js";
 import { RouteRedirect } from "./routes/Redirect.js";
 import { RouteUpdate } from "./routes/Update.js";
-import { RouteStadistics } from "./routes/Stadisitcs.js";
+import { RouteStatistics } from "./routes/Statistics.js"; // Corregido el nombre
+
 const app = express();
 
 // Using bodyParser to parse JSON bodies into JS objects.
@@ -20,11 +18,11 @@ app.use(logger);
 // activate sub-routes
 app.use("/s", RouteRedirect);
 
-app.use('/api/url', RouteCreate);
+app.use("/api/url", RouteCreate);
 
 app.use("/api/url/put-test", RouteUpdate);
 
-app.use('/api/url', RouteStadistics);
+app.use("/api/pokestats", RouteStatistics);
 
 // map every other route and return 404
 app.use("/*", (req, res) => sendNotFound(req, res));
