@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=https://schema.skills17.ch/task-config/v3/config.schema.json
+id: backend
+metadata:
+  name: Shopping Cart API
+serve:
+  bind: localhost
+  port: 4000
+source:
+  - src-node/**
+  - src-php/**
+localHistory: true
+groups:
+  - match: Shopping Cart API > General .+
+    displayName: General
+    defaultPoints: 0
+    tests:
+      - match: .*error.*$
+        points: 0.5
+  - match: Shopping Cart API > Cart creation > .+
+    displayName: Cart creation
+    defaultPoints: 2
+  - match: Shopping Cart API > Add cart items > .+
+    displayName: Add cart items
+    defaultPoints: 2
+    tests:
+      - match: .*error.*$
+        points: 0.5
+  - match: Shopping Cart API > Update cart items > .+
+    displayName: Update cart items
+    defaultPoints: 2
+    tests:
+      - match: .*error.*$
+        points: 0.5
+  - match: Shopping Cart API > Remove cart items > .+
+    displayName: Remove cart items
+    defaultPoints: 1
+    tests:
+      - match: .*error.*$
+        points: 0.25
+  - match: Shopping Cart API > View cart > .+
+    displayName: View cart
+    defaultPoints: 2
+    tests:
+      - match: .*should view empty cart.*$
+        points: 0.5
+      - match: .*error.*$
+        points: 0.25
+  - match: Shopping Cart API > Checkout > .+
+    displayName: Checkout
+    defaultPoints: 2
+    tests:
+      - match: .*error.*$
+        points: 0.5
+  - match: Shopping Cart API > Price and Discounts > .+
+    displayName: Price and Discounts
+    defaultPoints: 2
+    tests:
+      - match: .*discount.*$
+        points: 4
